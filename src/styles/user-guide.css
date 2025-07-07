@@ -1,0 +1,124 @@
+/**
+ * @fileoverview User Guide Styles
+ * Styles for user guide carousel, progress indicators and step functionality
+ * @author NuwaX
+ */
+
+/* User Guide Section */
+.user-guide-section {
+  scroll-margin-top: 80px;
+}
+
+/* Progress Line */
+.user-guide-progress-line {
+  position: relative;
+  overflow: hidden;
+}
+
+.user-guide-progress-line::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: var(--color-primary-500);
+  transform: translateY(-50%);
+  z-index: 0;
+}
+
+/* Step Content Animation */
+.user-guide-step-content {
+  transform: translateY(10px);
+  opacity: 0;
+  animation: slideUpFadeIn 0.4s ease-out forwards;
+}
+
+/* Guide Container Swipe Support */
+#guide-container {
+  touch-action: pan-y;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  cursor: grab;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+#guide-container:active,
+#guide-container.swipe-active {
+  cursor: grabbing !important;
+}
+
+/* Carousel Slide Animations */
+#guide-container {
+  position: relative;
+  overflow: hidden;
+  width: 100%;
+  height: auto;
+}
+
+#guide-container .card-bg {
+  transition: none;
+  position: relative;
+  width: 100%;
+}
+
+/* Slide out animations */
+.slide-out-next {
+  animation: slideOutLeft 0.5s ease-out forwards !important;
+}
+
+.slide-out-previous {
+  animation: slideOutRight 0.5s ease-out forwards !important;
+}
+
+/* Slide in animations */
+.slide-in-next {
+  animation: slideInFromRight 0.6s ease-out forwards !important;
+}
+
+.slide-in-previous {
+  animation: slideInFromLeft 0.6s ease-out forwards !important;
+}
+
+/* Enhanced fade-in animation for initial load */
+.animate-fade-in {
+  animation: smoothFadeIn 0.4s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+}
+
+/* Progress indicators smooth transitions */
+#progress-indicators > div {
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+#progress-indicators .w-8 {
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+#progress-indicators .w-8:hover {
+  transform: scale(1.1);
+  box-shadow: 0 4px 12px rgba(46, 187, 168, 0.3);
+}
+
+/* Mini indicators smooth transitions */
+#mini-indicators > div {
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  cursor: pointer;
+}
+
+#mini-indicators > div:hover {
+  transform: scale(1.2);
+}
+
+/* Button transitions */
+#prev-step, #next-step {
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+#prev-step:hover:not(:disabled), 
+#next-step:hover:not(:disabled) {
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  cursor: pointer;
+} 

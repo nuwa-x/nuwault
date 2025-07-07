@@ -1,0 +1,426 @@
+/**
+ * @fileoverview Component Styles
+ * Button, input, form and other basic component styles
+ * @author NuwaX
+ */
+
+/* Primary Button */
+.btn-primary {
+  background-color: var(--color-primary-600);
+  color: white;
+  font-weight: 500;
+  padding: 0.5rem 1rem;
+  border-radius: 0.5rem;
+  transition: background-color 0.2s;
+  cursor: pointer;
+}
+
+.btn-primary:hover {
+  background-color: var(--primary-form-hover-light);
+}
+
+.dark .btn-primary:hover {
+  background-color: var(--primary-form-hover-dark);
+}
+
+/* Secondary Button */
+.btn-secondary {
+  background-color: var(--gray-200);
+  color: var(--gray-900);
+  font-weight: 500;
+  padding: 0.5rem 1rem;
+  border-radius: 0.5rem;
+  border: 1px solid transparent;
+  transition: all 0.2s;
+}
+
+.btn-secondary:hover {
+  background-color: rgba(46, 187, 168, 0.05);
+  color: var(--primary-main);
+  border: 1px solid var(--primary-main);
+}
+
+.dark .btn-secondary {
+  background-color: var(--bg-tertiary);
+  color: var(--gray-100);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.dark .btn-secondary:hover {
+  background-color: rgba(46, 187, 168, 0.1);
+  color: var(--primary-main);
+  border: 1px solid var(--primary-main);
+}
+
+.btn-secondary:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.dark .btn-secondary:disabled {
+  background-color: var(--bg-secondary);
+  color: var(--gray-500);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+/* Keyword Add/Remove Buttons */
+.btn-keyword-add,
+.btn-keyword-remove {
+  background-color: var(--gray-200);
+  color: var(--gray-800);
+  font-weight: 500;
+  padding: 0.5rem 1rem;
+  border-radius: 0.5rem;
+  border: 1px solid var(--gray-300);
+  transition: all 0.2s;
+  cursor: pointer;
+}
+
+.btn-keyword-add:hover,
+.btn-keyword-remove:hover {
+  background-color: rgba(46, 187, 168, 0.05);
+  color: var(--color-primary-600);
+  border: 1px solid var(--color-primary-500);
+}
+
+.dark .btn-keyword-add,
+.dark .btn-keyword-remove {
+  background-color: var(--bg-quaternary);
+  color: var(--gray-200);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+}
+
+.dark .btn-keyword-add:hover,
+.dark .btn-keyword-remove:hover {
+  background-color: rgba(46, 187, 168, 0.1);
+  color: var(--color-primary-400);
+  border: 1px solid var(--color-primary-400);
+}
+
+/* Input Field */
+.input-field,
+.select-field {
+  width: 100%;
+  padding: 0.5rem 1rem;
+  border: 1px solid var(--gray-300);
+  border-radius: 0.5rem;
+  background-color: white;
+  color: var(--gray-900);
+  font-size: 0.875rem;
+  transition: all 0.2s;
+}
+
+.input-field::placeholder,
+.select-field::placeholder {
+  color: var(--gray-500);
+  opacity: 1;
+}
+
+.input-field:focus,
+.select-field:focus {
+  outline: none;
+  border-color: var(--color-primary-500);
+  box-shadow: 0 0 0 3px rgba(46, 187, 168, 0.1);
+}
+
+.dark .input-field,
+.dark .select-field {
+  border-color: var(--gray-600);
+  background-color: var(--bg-tertiary);
+  color: var(--gray-100);
+}
+
+.dark .input-field:focus,
+.dark .select-field:focus {
+  outline: none;
+  border-color: var(--color-primary-500);
+  box-shadow: 0 0 0 3px rgba(46, 187, 168, 0.15);
+}
+
+.dark .input-field::placeholder,
+.dark .select-field::placeholder {
+  color: var(--gray-400);
+  opacity: 1;
+}
+
+.select-field {
+  cursor: pointer;
+}
+
+/* Range Slider */
+input[type="range"] {
+  -webkit-appearance: none;
+  appearance: none;
+  background: var(--slider-track-light);
+  height: 8px;
+  border-radius: 4px;
+  cursor: pointer;
+  outline: none;
+  transition: background-color 0.2s ease;
+  touch-action: none;
+  pointer-events: auto;
+}
+
+input[type="range"]:focus {
+  outline: none;
+}
+
+.dark input[type="range"] {
+  background: var(--slider-track-dark);
+  transition: background-color 0.2s ease;
+}
+
+/* Range slider track */
+input[type="range"]::-webkit-slider-track {
+  background: var(--slider-track-light);
+  height: 8px;
+  border-radius: 4px;
+  transition: background-color 0.2s ease;
+  pointer-events: none;
+}
+
+.dark input[type="range"]::-webkit-slider-track {
+  background: var(--slider-track-dark);
+  transition: background-color 0.2s ease;
+}
+
+input[type="range"]::-moz-range-track {
+  background: var(--slider-track-light);
+  height: 8px;
+  border-radius: 4px;
+  border: none;
+  transition: background-color 0.2s ease;
+  pointer-events: none;
+}
+
+.dark input[type="range"]::-moz-range-track {
+  background: var(--slider-track-dark);
+  transition: background-color 0.2s ease;
+}
+
+/* Range slider thumb */
+input[type="range"]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  height: 20px;
+  width: 20px;
+  border-radius: 50%;
+  background: var(--color-primary-500);
+  cursor: pointer;
+  border: 2px solid white;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
+  transition: all 0.2s ease;
+  pointer-events: auto;
+}
+
+input[type="range"]::-webkit-slider-thumb:hover {
+  background: var(--color-primary-600);
+  transform: scale(1.1);
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
+}
+
+input[type="range"]::-webkit-slider-thumb:focus {
+  outline: none;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
+}
+
+.dark input[type="range"]::-webkit-slider-thumb {
+  border: 2px solid var(--bg-tertiary);
+}
+
+.dark input[type="range"]::-webkit-slider-thumb:hover {
+  background: var(--color-primary-600);
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
+}
+
+.dark input[type="range"]::-webkit-slider-thumb:focus {
+  outline: none;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
+}
+
+input[type="range"]::-moz-range-thumb {
+  height: 20px;
+  width: 20px;
+  border-radius: 50%;
+  background: var(--color-primary-500);
+  cursor: pointer;
+  border: 2px solid white;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
+  transition: all 0.2s ease;
+  pointer-events: auto;
+}
+
+input[type="range"]::-moz-range-thumb:hover {
+  background: var(--color-primary-600);
+  transform: scale(1.1);
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
+}
+
+input[type="range"]::-moz-range-thumb:focus {
+  outline: none;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
+}
+
+.dark input[type="range"]::-moz-range-thumb {
+  border: 2px solid var(--bg-tertiary);
+}
+
+.dark input[type="range"]::-moz-range-thumb:hover {
+  background: var(--color-primary-600);
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
+}
+
+.dark input[type="range"]::-moz-range-thumb:focus {
+  outline: none;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
+}
+
+/* Checkbox */
+input[type="checkbox"] {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  width: 1rem;
+  height: 1rem;
+  border: 2px solid var(--checkbox-border-light);
+  border-radius: 0.25rem;
+  background-color: var(--checkbox-bg-light);
+  cursor: pointer;
+  position: relative;
+  transition: all 0.2s ease;
+}
+
+.dark input[type="checkbox"] {
+  border-color: var(--checkbox-border-dark);
+  background-color: var(--checkbox-bg-dark);
+}
+
+input[type="checkbox"]:checked {
+  background-color: var(--color-primary-500);
+  border-color: var(--color-primary-500);
+}
+
+input[type="checkbox"]:checked::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 10px;
+  height: 10px;
+  background-image: url("data:image/svg+xml,%3csvg viewBox='0 0 16 16' fill='white' xmlns='http://www.w3.org/2000/svg'%3e%3cpath d='m13.854 3.646-7.5 7.5a.5.5 0 0 1-.708 0l-3.5-3.5a.5.5 0 1 1 .708-.708L6 10.293l7.146-7.147a.5.5 0 0 1 .708.708z' stroke='white' stroke-width='0.5'/%3e%3c/svg%3e");
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+input[type="checkbox"]:hover {
+  border-color: var(--color-primary-500);
+  box-shadow: 0 0 0 3px rgba(46, 187, 168, 0.1);
+}
+
+.dark input[type="checkbox"]:hover {
+  box-shadow: 0 0 0 3px rgba(46, 187, 168, 0.15);
+}
+
+input[type="checkbox"]:focus {
+  outline: none;
+  border-color: var(--color-primary-500);
+  box-shadow: 0 0 0 3px rgba(46, 187, 168, 0.2);
+}
+
+.dark input[type="checkbox"]:focus {
+  box-shadow: 0 0 0 3px rgba(46, 187, 168, 0.25);
+}
+
+/* Copy button alignment with text area */
+#copy-password {
+  align-self: stretch;
+  height: auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-sizing: border-box;
+}
+
+/* Ensure proper flex alignment for password container */
+.password-container {
+  align-items: stretch !important;
+}
+
+/* Manual Generate Password Button */
+#manual-generate-btn {
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+  overflow: hidden;
+}
+
+#manual-generate-btn:hover {
+  background-color: var(--color-primary-700) !important;
+  transform: translateY(-1px);
+}
+
+#manual-generate-btn:active {
+  transform: translateY(0);
+}
+
+#manual-generate-btn:hover svg {
+  transform: rotate(180deg);
+  transition: transform 0.4s ease;
+}
+
+.dark #manual-generate-btn:hover {
+  background-color: var(--color-primary-500) !important;
+}
+
+/* Manual Generate Button Container */
+#manual-generate-container {
+  transition: all 0.3s ease-in-out;
+  overflow: hidden;
+}
+
+#manual-generate-container.hidden {
+  opacity: 0;
+  max-height: 0;
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+#manual-generate-container:not(.hidden) {
+  opacity: 1;
+  max-height: 100px;
+  margin-top: 1rem;
+  margin-bottom: 0;
+}
+
+/* FAQ Button */
+.faq-button {
+  cursor: pointer;
+}
+
+.faq-button:hover .faq-icon {
+  color: var(--color-primary-500);
+}
+
+.faq-content {
+  transition: max-height 0.3s ease-in-out;
+}
+
+.faq-button:focus {
+  outline: none;
+}
+
+/* Password Strength Container */
+.password-strength-container {
+  max-height: 0;
+  opacity: 0;
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+.password-strength-container.visible {
+  max-height: 120px;
+  opacity: 1;
+  margin-top: 1rem;
+  margin-bottom: 0;
+} 

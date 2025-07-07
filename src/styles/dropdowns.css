@@ -1,0 +1,290 @@
+/**
+ * @fileoverview Dropdown Styles
+ * Styles for theme selector and language selector dropdowns
+ * @author NuwaX
+ */
+
+/* Theme Selector Dropdown Styles - Modern Design */
+.theme-selector-wrapper #theme-toggle {
+  transition: all 0.2s ease;
+  position: relative;
+  box-shadow: none !important;
+}
+
+.theme-selector-wrapper #theme-toggle:hover {
+  color: var(--color-primary-600) !important;
+  background-color: rgba(46, 187, 168, 0.08) !important;
+  transform: translateY(-1px);
+}
+
+.dark .theme-selector-wrapper #theme-toggle:hover {
+  color: var(--color-primary-400) !important;
+  background-color: rgba(46, 187, 168, 0.12) !important;
+}
+
+/* Modern dropdown container */
+#theme-dropdown {
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+}
+
+.dark #theme-dropdown {
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.25), 0 10px 10px -5px rgba(0, 0, 0, 0.1);
+}
+
+/* Theme option styling */
+.theme-option {
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+  border-radius: 0.5rem;
+  margin: 0 0.25rem;
+}
+
+.theme-option:hover {
+  background-color: rgba(46, 187, 168, 0.08) !important;
+  color: var(--color-primary-700) !important;
+  transform: translateX(2px);
+}
+
+.dark .theme-option:hover {
+  background-color: rgba(46, 187, 168, 0.12) !important;
+  color: var(--color-primary-300) !important;
+}
+
+.theme-option.active {
+  background-color: rgba(46, 187, 168, 0.1) !important;
+  color: var(--color-primary-700) !important;
+  position: relative;
+}
+
+.dark .theme-option.active {
+  background-color: rgba(46, 187, 168, 0.15) !important;
+  color: var(--color-primary-300) !important;
+}
+
+/* Active indicator line */
+.theme-option.active::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 3px;
+  height: 60%;
+  background: linear-gradient(135deg, var(--color-primary-500), var(--color-primary-600));
+  border-radius: 0 2px 2px 0;
+}
+
+/* Icon and text styling */
+.theme-option svg {
+  transition: all 0.2s ease;
+}
+
+.theme-option:hover svg,
+.theme-option.active svg {
+  color: inherit;
+  transform: scale(1.05);
+}
+
+/* Smooth list styling */
+.theme-selector-wrapper ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.theme-selector-wrapper li {
+  margin: 0;
+  padding: 0;
+}
+
+/* Enhanced focus states */
+.theme-option:focus {
+  outline: none;
+  background-color: rgba(46, 187, 168, 0.1) !important;
+  box-shadow: 0 0 0 2px rgba(46, 187, 168, 0.2);
+}
+
+.dark .theme-option:focus {
+  background-color: rgba(46, 187, 168, 0.15) !important;
+  box-shadow: 0 0 0 2px rgba(46, 187, 168, 0.3);
+}
+
+/* Language Selector Styles - Matching ThemeSelector Design */
+.language-selector-wrapper {
+  position: relative;
+}
+
+.language-selector-wrapper #language-toggle {
+  transition: all 0.2s ease;
+  position: relative;
+}
+
+.language-selector-wrapper #language-toggle:hover {
+  color: var(--color-primary-600) !important;
+  background-color: rgba(46, 187, 168, 0.08) !important;
+  transform: translateY(-1px);
+}
+
+.dark .language-selector-wrapper #language-toggle:hover {
+  color: var(--color-primary-400) !important;
+  background-color: rgba(46, 187, 168, 0.12) !important;
+}
+
+#language-dropdown {
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+  transform-origin: top right;
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.dark #language-dropdown {
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.25), 0 10px 10px -5px rgba(0, 0, 0, 0.1);
+}
+
+.language-selector-wrapper ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.language-selector-wrapper li {
+  margin: 0;
+  padding: 0;
+}
+
+.language-option {
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+  border-radius: 0.5rem;
+  margin: 0 0.25rem;
+}
+
+.language-option:hover {
+  background-color: rgba(46, 187, 168, 0.08) !important;
+  color: var(--color-primary-700) !important;
+  transform: translateX(2px);
+}
+
+.dark .language-option:hover {
+  background-color: rgba(46, 187, 168, 0.12) !important;
+  color: var(--color-primary-300) !important;
+}
+
+.language-option.active {
+  background-color: rgba(46, 187, 168, 0.1) !important;
+  color: var(--color-primary-700) !important;
+  position: relative;
+}
+
+.dark .language-option.active {
+  background-color: rgba(46, 187, 168, 0.15) !important;
+  color: var(--color-primary-300) !important;
+}
+
+/* Active indicator line */
+.language-option.active::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 3px;
+  height: 60%;
+  background: linear-gradient(135deg, var(--color-primary-500), var(--color-primary-600));
+  border-radius: 0 2px 2px 0;
+}
+
+/* Icon and text styling */
+.language-option svg {
+  transition: all 0.2s ease;
+}
+
+.language-option:hover svg,
+.language-option.active svg {
+  color: inherit;
+  transform: scale(1.05);
+}
+
+/* Enhanced focus states */
+.language-option:focus {
+  outline: none;
+  background-color: rgba(46, 187, 168, 0.1) !important;
+  box-shadow: 0 0 0 2px rgba(46, 187, 168, 0.2);
+}
+
+.dark .language-option:focus {
+  background-color: rgba(46, 187, 168, 0.15) !important;
+  box-shadow: 0 0 0 2px rgba(46, 187, 168, 0.3);
+}
+
+/* Flag icon styles */
+.flag-icon {
+  line-height: 0;
+}
+
+.flag-icon svg {
+  width: 20px;
+  height: 20px;
+  border-radius: 2px;
+}
+
+/* Box shadow only for toggle button flag */
+#language-toggle .flag-icon svg {
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+}
+
+.dark #language-toggle .flag-icon svg {
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+}
+
+/* Mobile header selector adjustments */
+@media (max-width: 768px) {
+  /* Compact mobile header layout */
+  .flex.md\\:hidden.items-center {
+    gap: 0.25rem;
+  }
+  
+  /* Mobile selector toggle buttons - smaller and more compact */
+  .language-selector-wrapper #language-toggle,
+  .theme-selector-wrapper #theme-toggle {
+    padding: 0.25rem 0.5rem !important;
+    min-width: 2rem;
+    font-size: 0.75rem;
+  }
+  
+  /* Language selector mobile adjustments */
+  #language-dropdown {
+    right: -8px;
+    width: 200px;
+  }
+  
+  .language-option {
+    padding: 12px 16px;
+  }
+  
+  .language-option .text-xs {
+    font-size: 0.7rem;
+  }
+  
+  /* Theme selector mobile adjustments */
+  #theme-dropdown {
+    right: -8px;
+    width: 200px;
+  }
+  
+  .theme-option {
+    padding: 12px 16px;
+  }
+  
+  /* Mobile menu button adjustment */
+  #mobile-menu-button {
+    margin-left: 0.25rem !important;
+  }
+} 

@@ -1,14 +1,86 @@
 {
-  "name": "vite-project",
-  "private": true,
+  "name": "@nuwa-x/nuwault",
   "version": "0.0.0",
+  "description": "Advanced keyword-based password generator with client-side security, privacy focus and PWA support",
   "type": "module",
+  "private": false,
+  "files": [
+    "dist",
+    "public",
+    "README.md",
+    "LICENSE",
+    "CHANGELOG.md",
+    "CONTRIBUTING.md",
+    "SECURITY.md"
+  ],
   "scripts": {
-    "dev": "vite",
-    "build": "vite build",
-    "preview": "vite preview"
+    "dev": "npm run generate-sw && vite",
+    "build": "npm run generate-sw && vite build",
+    "build:pwa": "npm run generate-icons && npm run generate-sw && npm run build",
+    "preview": "vite preview",
+    "serve": "vite preview --host",
+    "generate-icons": "node scripts/generate-icons.js",
+    "generate-sw": "node scripts/generate-sw.js",
+    "pwa:install-deps": "npm install sharp --save-dev",
+    "pwa:setup": "npm run pwa:install-deps && npm run generate-icons && npm run generate-sw",
+    "clean": "rm -rf dist",
+    "validate": "npm run build",
+    "prepublishOnly": "npm run clean && npm run validate"
   },
+  "keywords": [
+    "password",
+    "generator",
+    "security",
+    "privacy",
+    "pwa",
+    "progressive-web-app",
+    "client-side",
+    "offline",
+    "crypto",
+    "web-crypto-api",
+    "tailwindcss",
+    "vite",
+    "javascript",
+    "password-strength",
+    "secure-generation",
+    "keyword-based",
+    "deterministic",
+    "no-server",
+    "privacy-first"
+  ],
+  "author": "NuwaX",
+  "license": "MIT",
+  "publishConfig": {
+    "access": "public"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/nuwa-x/nuwault.git"
+  },
+  "bugs": {
+    "url": "https://github.com/nuwa-x/nuwault/issues"
+  },
+  "homepage": "https://nuwault.com",
   "devDependencies": {
-    "vite": "^7.0.0"
-  }
+    "@vitejs/plugin-legacy": "^7.0.0",
+    "sharp": "^0.34.2",
+    "terser": "^5.43.1",
+    "vite": "^7.0.0",
+    "vite-plugin-singlefile": "^2.3.0"
+  },
+  "dependencies": {
+    "@nuwa-x/nuwault-core": "^1.0.0",
+    "@tailwindcss/vite": "^4.1.11",
+    "i18next": "^25.3.0",
+    "tailwindcss": "^4.1.11"
+  },
+  "engines": {
+    "node": ">=18.0.0",
+    "npm": ">=9.0.0"
+  },
+  "browserslist": [
+    "defaults",
+    "not IE 11",
+    "not op_mini all"
+  ]
 }

@@ -1,0 +1,350 @@
+/**
+ * @fileoverview Keyword Chips Styles
+ * Styles for keyword chips functionality including drag & drop
+ * @author NuwaX
+ */
+
+/* Enhanced Drag & Drop Styles - SortableJS inspired */
+.keyword-chip {
+  transition: all 0.2s cubic-bezier(0.4, 0.0, 0.2, 1);
+  position: relative;
+  z-index: 1;
+}
+
+.keyword-chip.dragging {
+  opacity: 0.5 !important;
+  transform: rotate(5deg) scale(1.05);
+  z-index: 1000;
+  box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.25), 0 8px 10px -6px rgba(0, 0, 0, 0.1);
+  cursor: grabbing !important;
+}
+
+.keyword-chip.drag-over {
+  transform: translateX(4px);
+  border-color: var(--color-primary-400) !important;
+  background-color: var(--color-primary-50) !important;
+  box-shadow: 0 4px 12px -2px rgba(46, 187, 168, 0.15);
+  transition: all 0.15s ease-out !important;
+}
+
+.dark .keyword-chip.drag-over {
+  background-color: rgba(46, 187, 168, 0.1) !important;
+  border-color: var(--color-primary-500) !important;
+}
+
+/* Touch-specific feedback styles */
+.keyword-chip.touch-active {
+  transform: scale(0.98);
+  background-color: var(--color-primary-100) !important;
+  border-color: var(--color-primary-300) !important;
+  transition: all 0.1s ease-out;
+}
+
+.dark .keyword-chip.touch-active {
+  background-color: rgba(46, 187, 168, 0.15) !important;
+  border-color: var(--color-primary-400) !important;
+}
+
+/* Drag placeholder */
+.keyword-chip.drag-placeholder {
+  opacity: 0.3;
+  background: repeating-linear-gradient(
+    45deg,
+    transparent,
+    transparent 5px,
+    rgba(156, 163, 175, 0.2) 5px,
+    rgba(156, 163, 175, 0.2) 10px
+  );
+  border: 2px dashed var(--gray-300);
+  animation: pulse-placeholder 1.5s ease-in-out infinite;
+}
+
+.dark .keyword-chip.drag-placeholder {
+  background: repeating-linear-gradient(
+    45deg,
+    transparent,
+    transparent 5px,
+    rgba(107, 114, 128, 0.3) 5px,
+    rgba(107, 114, 128, 0.3) 10px
+  );
+  border-color: var(--gray-600);
+}
+
+/* Keywords container */
+.keywords-container {
+  min-height: 48px;
+  transition: min-height 0.2s ease;
+  position: relative;
+}
+
+.keywords-container.drag-active {
+  background-color: rgba(46, 187, 168, 0.02);
+  border-radius: 0.5rem;
+  border: 2px dashed rgba(46, 187, 168, 0.2);
+}
+
+.dark .keywords-container.drag-active {
+  background-color: rgba(46, 187, 168, 0.05);
+  border-color: rgba(46, 187, 168, 0.3);
+}
+
+/* Drop zone indicators */
+.drop-zone {
+  position: relative;
+}
+
+.drop-zone::before {
+  content: '';
+  position: absolute;
+  left: -6px;
+  top: 0;
+  bottom: 0;
+  width: 4px;
+  background-color: var(--color-primary-500);
+  opacity: 0;
+  transition: opacity 0.2s ease;
+  border-radius: 3px;
+  box-shadow: 0 0 6px rgba(46, 187, 168, 0.4);
+}
+
+.drop-zone.drop-left::before {
+  opacity: 1;
+  left: -6px;
+}
+
+.drop-zone.drop-right::before {
+  opacity: 1;
+  left: 100%;
+  margin-left: 2px;
+}
+
+/* Enhanced drag handle */
+.drag-handle {
+  transition: all 0.2s ease;
+  opacity: 0.6;
+}
+
+.keyword-chip:hover .drag-handle {
+  opacity: 1;
+  color: var(--color-primary-500) !important;
+}
+
+.keyword-chip.dragging .drag-handle {
+  color: var(--color-primary-600) !important;
+}
+
+/* Enhanced touch improvements for mobile drag & drop */
+.keyword-chip {
+  touch-action: pan-y;
+  -webkit-user-select: none;
+  user-select: none;
+}
+
+/* Animation for smooth reordering */
+.keyword-chip.moving {
+  transition: transform 0.3s cubic-bezier(0.4, 0.0, 0.2, 1);
+}
+
+/* Ghost element styling */
+.drag-ghost {
+  opacity: 0.4 !important;
+  background-color: var(--color-primary-100) !important;
+  border-color: var(--color-primary-300) !important;
+  transform: rotate(3deg) scale(0.95);
+}
+
+.dark .drag-ghost {
+  background-color: rgba(46, 187, 168, 0.1) !important;
+  border-color: var(--color-primary-600) !important;
+}
+
+/* Auto-scroll indicators */
+.auto-scroll-indicator {
+  position: fixed;
+  left: 0;
+  right: 0;
+  height: 20px;
+  background: linear-gradient(to bottom, var(--color-primary-500), transparent);
+  opacity: 0;
+  transition: opacity 0.2s ease;
+  pointer-events: none;
+  z-index: 1001;
+}
+
+.auto-scroll-indicator.top {
+  top: 0;
+}
+
+.auto-scroll-indicator.bottom {
+  bottom: 0;
+  background: linear-gradient(to top, var(--color-primary-500), transparent);
+}
+
+.auto-scroll-indicator.active {
+  opacity: 0.3;
+}
+
+/* Dark theme keyword chips styles */
+.dark .dark\:bg-gray-700\/30 { background-color: rgba(55, 65, 81, 0.3); }
+.dark .dark\:bg-gray-700\/40 { background-color: rgba(55, 65, 81, 0.4); }
+.dark .dark\:bg-gray-600\/40 { background-color: rgba(75, 85, 99, 0.4); }
+
+.dark .dark\:border-gray-500\/40 { border-color: rgba(107, 114, 128, 0.4); }
+.dark .dark\:border-gray-500\/50 { border-color: rgba(107, 114, 128, 0.5); }
+.dark .dark\:border-gray-400\/50 { border-color: rgba(156, 163, 175, 0.5); }
+.dark .dark\:border-blue-500 { border-color: rgb(59 130 246); }
+.dark .dark\:border-red-500 { border-color: rgb(239 68 68); }
+
+.dark .dark\:hover\:bg-gray-600\/40:hover { background-color: rgba(75, 85, 99, 0.4); }
+.dark .dark\:hover\:bg-gray-600\/30:hover { background-color: rgba(75, 85, 99, 0.3); }
+.dark .dark\:hover\:bg-primary-500\/10:hover { background-color: rgba(46, 187, 168, 0.1); }
+.dark .dark\:hover\:bg-red-500\/10:hover { background-color: rgba(239, 68, 68, 0.1); }
+.dark .dark\:hover\:bg-green-500\/10:hover { background-color: rgba(34, 197, 94, 0.1); }
+
+.dark .dark\:text-gray-100 { color: rgb(243, 244, 246); }
+.dark .dark\:text-gray-200 { color: rgb(229, 231, 235); }
+
+.dark .dark\:hover\:text-primary-400:hover { color: var(--color-primary-400); }
+.dark .dark\:hover\:text-red-400:hover { color: rgb(248, 113, 113); }
+.dark .dark\:hover\:text-green-300:hover { color: rgb(134, 239, 172); }
+.dark .dark\:hover\:text-gray-200:hover { color: rgb(229, 231, 235); }
+
+/* Dark theme hover effects for add button */
+.dark .dark\:hover\:bg-primary-700:hover { background-color: var(--color-primary-700); }
+.dark .dark\:hover\:shadow-lg:hover { box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.2), 0 4px 6px -2px rgba(0, 0, 0, 0.1); }
+
+/* Enhanced mobile drag feedback */
+@media (max-width: 768px) {
+  .keyword-chip.dragging {
+    transform: scale(1.05) rotate(2deg);
+    z-index: 1000;
+    box-shadow: 0 8px 25px -5px rgba(0, 0, 0, 0.3);
+  }
+  
+  .keywords-container.drag-active .keyword-chip:not(.dragging) {
+    opacity: 0.7;
+  }
+  
+  /* Larger drop zone indicators for touch */
+  .drop-zone::before {
+    width: 6px !important;
+    border-radius: 4px !important;
+    box-shadow: 0 0 8px rgba(46, 187, 168, 0.6) !important;
+  }
+}
+
+/* Mobile-first: full-width blocks and vertical drag */
+@media (max-width: 768px) {
+  .keyword-chip {
+    display: flex !important;
+    width: 100% !important;
+    margin-bottom: 0.5rem !important;
+    touch-action: pan-x;
+    min-height: 48px;
+    padding: 0.75rem 1rem;
+    justify-content: flex-start;
+    align-items: center;
+  }
+  
+  /* Left side content container */
+  .keyword-chip .flex-1 {
+    display: flex;
+    align-items: center;
+    flex: 1;
+    min-width: 0;
+  }
+  
+  /* Right side buttons container */
+  .keyword-chip .flex:not(.flex-1) {
+    display: flex;
+    align-items: center;
+    flex-shrink: 0;
+    margin-left: 0.5rem;
+  }
+  
+  /* Edit mode specific styling for mobile */
+  .keyword-chip-editing {
+    width: 100% !important;
+    margin-bottom: 0.5rem !important;
+  }
+  
+  .keyword-chip-editing .flex-1 input {
+    width: 100% !important;
+    max-width: none !important;
+    min-width: 0 !important;
+  }
+  
+  .keyword-chip.dragging {
+    touch-action: none;
+    opacity: 0.8;
+    transform: scale(0.98) rotate(1deg);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+    z-index: 1000;
+  }
+  
+  /* Mobile: vertical drop zones (top/bottom instead of left/right) */
+  .drop-zone::before {
+    left: 0 !important;
+    right: 0 !important;
+    width: 100% !important;
+    height: 4px !important;
+    top: -6px !important;
+    bottom: auto !important;
+  }
+  
+  .drop-zone.drop-left::before {
+    opacity: 1;
+    top: -6px !important;
+    left: 0 !important;
+    right: 0 !important;
+    width: 100% !important;
+    height: 4px !important;
+  }
+  
+  .drop-zone.drop-right::before {
+    opacity: 1;
+    top: auto !important;
+    bottom: -6px !important;
+    left: 0 !important;
+    right: 0 !important;
+    width: 100% !important;
+    height: 4px !important;
+  }
+  
+  /* Full-width keywords container */
+  .keywords-container {
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 0 !important;
+  }
+}
+
+/* Better touch response on mobile */
+@media (pointer: coarse) {
+  .keyword-chip {
+    touch-action: manipulation;
+    min-height: 44px;
+    padding: 0.625rem 0.875rem;
+  }
+  
+  .keyword-chip.dragging {
+    touch-action: none;
+    opacity: 0.8;
+    transform: scale(1.02);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+    z-index: 1000;
+  }
+  
+  /* Improved touch feedback */
+  .keyword-chip.touch-active {
+    transform: scale(0.97);
+    background-color: var(--color-primary-100) !important;
+    border-color: var(--color-primary-300) !important;
+    transition: all 0.1s ease-out;
+  }
+  
+  .dark .keyword-chip.touch-active {
+    background-color: rgba(46, 187, 168, 0.15) !important;
+    border-color: var(--color-primary-400) !important;
+  }
+} 

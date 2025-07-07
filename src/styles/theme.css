@@ -1,0 +1,310 @@
+/**
+ * @fileoverview Theme Styles
+ * Color variables, theme configurations, and dark mode styles
+ * @author NuwaX
+ */
+
+/* Essential colors with CSS variables */
+:root {
+  --gray-50: rgb(249 250 251);
+  --gray-100: rgb(243 244 246);
+  --gray-200: rgb(229 231 235);
+  --gray-300: rgb(209 213 219);
+  --gray-400: rgb(156 163 175);
+  --gray-500: rgb(107 114 128);
+  --gray-600: rgb(75 85 99);
+  --gray-700: rgb(55 65 81);
+  --gray-800: rgb(31 41 55);
+  --gray-900: rgb(17 24 39);
+  --gray-950: rgb(3 7 18);
+}
+
+/* Theme specific colors */
+:root {
+  /* Light theme colors */
+  --bg-primary: #ffffff;
+  --bg-secondary: #fafbfc;
+  --bg-tertiary: #ffffff;
+  --bg-quaternary: #f3f4f6;
+  
+  /* Primary colors */
+  --primary-main: #2ebba8;
+  --primary-gradient-light: linear-gradient(135deg, #2ebba8 0%, #26a69a 100%);
+  --primary-gradient-dark: linear-gradient(135deg, #2ebba8 0%, #249688 100%);
+  --primary-hover-light: #26a69a;
+  --primary-hover-dark: #249688;
+  
+  /* Primary color scale */
+  --color-primary-50: #f0fdfa;
+  --color-primary-100: #ccfbf1;
+  --color-primary-200: #99f6e4;
+  --color-primary-300: #5eead4;
+  --color-primary-400: #2dd4bf;
+  --color-primary-500: #14b8a6;
+  --color-primary-600: #0d9488;
+  --color-primary-700: #0f766e;
+  --color-primary-800: #115e59;
+  --color-primary-900: #134e4a;
+  
+  /* Icon shadows */
+  --icon-shadow-light: 0 8px 32px rgba(46, 187, 168, 0.25);
+  --icon-shadow-dark: 0 8px 32px rgba(46, 187, 168, 0.3);
+  
+  /* Form element colors */
+  --primary-form-color: #2ebba8;
+  --primary-form-hover-light: #26a69a;
+  --primary-form-hover-dark: #249688;
+  --checkbox-border-light: #d1d5db;
+  --checkbox-border-dark: #4b5563;
+  --checkbox-bg-light: #f9fafb;
+  --checkbox-bg-dark: #374151;
+  --slider-track-light: #e5e7eb;
+  --slider-track-dark: #475569;
+}
+
+.dark {
+  /* Dark theme colors */
+  --bg-primary: #0f172a;
+  --bg-secondary: #0b1325;
+  --bg-tertiary: #334155;
+  --bg-quaternary: #475569;
+}
+
+/* Background colors */
+.bg-white { background-color: white; }
+.bg-gray-50 { background-color: var(--gray-50); }
+.bg-gray-100 { background-color: var(--gray-100); }
+.bg-gray-200 { background-color: var(--gray-200); }
+.bg-gray-300 { background-color: var(--gray-300); }
+.bg-gray-600 { background-color: var(--gray-600); }
+.bg-primary-500 { background-color: var(--color-primary-500); }
+
+/* Text colors */
+.text-white { color: white; }
+.text-gray-300 { color: var(--gray-300); }
+.text-gray-400 { color: var(--gray-400); }
+.text-gray-500 { color: var(--gray-500); }
+.text-gray-600 { color: var(--gray-600); }
+.text-gray-700 { color: var(--gray-700); }
+.text-gray-800 { color: var(--gray-800); }
+.text-gray-900 { color: var(--gray-900); }
+
+/* Green colors for save buttons */
+.text-green-600 { color: rgb(22, 163, 74); }
+.text-green-700 { color: rgb(21, 128, 61); }
+
+/* Dark theme background colors */
+.dark .dark\:bg-slate-800 { background-color: #1e293b; }
+.dark .dark\:bg-gray-800 { background-color: var(--bg-tertiary); }
+.dark .dark\:bg-gray-900 { background-color: var(--bg-primary); }
+.dark .dark\:bg-gray-600 { background-color: var(--gray-600); }
+.dark .dark\:text-white { color: white; }
+.dark .dark\:text-gray-300 { color: var(--gray-300); }
+.dark .dark\:text-gray-400 { color: var(--gray-400); }
+
+/* Border colors */
+.border-gray-200 { border-color: var(--gray-200); }
+.border-gray-300 { border-color: var(--gray-300); }
+.border-gray-700 { border-color: var(--gray-700); }
+.border-gray-800 { border-color: var(--gray-800); }
+
+/* Additional border colors for keyword chips */
+.border-primary-300 { border-color: var(--color-primary-300); }
+.dark .dark\:border-gray-700 { border-color: rgba(255, 255, 255, 0.15); }
+.dark .dark\:border-gray-800 { border-color: rgba(255, 255, 255, 0.2); }
+
+/* Hover states */
+.hover\:bg-gray-100:hover { background-color: var(--gray-100); }
+.hover\:bg-primary-500:hover { background-color: var(--color-primary-500); }
+.hover\:text-white:hover { color: white; }
+
+/* Light theme hover background colors for keyword chips */
+.hover\:bg-primary-50:hover { background-color: var(--color-primary-50); }
+.hover\:bg-primary-400:hover { background-color: var(--color-primary-300); }
+.hover\:bg-red-50:hover { background-color: rgb(254, 242, 242); }
+.hover\:bg-green-50:hover { background-color: rgb(240, 253, 244); }
+.dark .dark\:hover\:bg-gray-800:hover { background-color: var(--bg-tertiary); }
+.dark .dark\:hover\:bg-primary-500:hover { background-color: var(--color-primary-500); }
+.hover\:shadow-md:hover { box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06); }
+
+/* Remove button hover states */
+.hover\:bg-red-400:hover { background-color: rgb(248 113 113); }
+.hover\:text-red-600:hover { color: rgb(220 38 38); }
+.dark .dark\:hover\:bg-red-400:hover { background-color: rgb(248 113 113); }
+.dark .dark\:hover\:text-red-700:hover { color: rgb(185 28 28); }
+
+/* Primary color utilities */
+.text-primary-600 { color: var(--color-primary-600); }
+.dark .dark\:text-primary-400 { color: var(--color-primary-400); }
+.hover\:text-primary-600:hover { color: var(--color-primary-600); }
+.dark .dark\:hover\:text-primary-400:hover { color: var(--color-primary-400); }
+
+/* Custom component styles with CSS variables */
+
+/* Layout backgrounds */
+.layout-bg {
+  background-color: var(--bg-primary);
+  transition: background-color 0.2s ease;
+}
+
+/* Section backgrounds - Even/Odd pattern */
+.section-odd-bg {
+  background-color: var(--bg-primary);
+  transition: background-color 0.2s ease;
+}
+
+.section-even-bg {
+  background-color: var(--bg-secondary);
+  transition: background-color 0.2s ease;
+}
+
+/* Legacy section backgrounds */
+.section-bg {
+  background-color: var(--bg-secondary);
+  transition: background-color 0.2s ease;
+}
+
+.card-bg {
+  background-color: var(--bg-tertiary);
+  transition: background-color 0.2s ease;
+}
+
+/* Icon containers */
+.icon-container {
+  background: var(--primary-gradient-light);
+  transition: all 0.3s ease;
+}
+
+.dark .icon-container {
+  background: var(--primary-gradient-dark);
+}
+
+.icon-container:hover {
+  transform: scale(1.1);
+}
+
+.icon-container svg {
+  color: #ffffff;
+  stroke-width: 2.5;
+  transition: all 0.2s ease;
+}
+
+/* Scroll to top button */
+.scroll-to-top {
+  background: var(--primary-gradient-light);
+  transition: all 0.3s ease;
+}
+
+.dark .scroll-to-top {
+  background: var(--primary-gradient-dark);
+}
+
+.scroll-to-top:hover {
+  transform: scale(1.1);
+}
+
+.scroll-to-top svg {
+  color: #ffffff;
+  stroke-width: 2.5;
+  transition: all 0.2s ease;
+}
+
+/* Footer links */
+.footer-link {
+  color: #6b7280; /* gray-500 */
+  transition: color 0.2s ease;
+}
+
+.footer-link:hover {
+  color: var(--primary-main);
+}
+
+.dark .footer-link {
+  color: #9ca3af; /* gray-400 */
+}
+
+.dark .footer-link:hover {
+  color: var(--primary-main);
+}
+
+/* License link */
+.license-link {
+  color: var(--primary-main);
+  transition: color 0.2s ease;
+}
+
+.license-link:hover {
+  color: var(--primary-hover-light);
+}
+
+.dark .license-link:hover {
+  color: var(--primary-hover-dark);
+}
+
+/* Extended primary color utilities */
+.bg-primary-100 { background-color: var(--color-primary-100); }
+.bg-primary-300 { background-color: var(--color-primary-300); }
+.bg-primary-500 { background-color: var(--color-primary-500); }
+.bg-primary-600 { background-color: var(--color-primary-600); }
+.bg-primary-900 { background-color: var(--color-primary-900); }
+
+.dark .dark\:bg-primary-600 { background-color: var(--color-primary-600); }
+.dark .dark\:bg-primary-700 { background-color: var(--color-primary-700); }
+.dark .dark\:bg-primary-900 { background-color: var(--color-primary-900); }
+
+/* More primary text colors */
+.text-primary-400 { color: var(--color-primary-400); }
+.text-primary-200 { color: var(--color-primary-200); }
+.text-primary-300 { color: var(--color-primary-300); }
+.text-primary-700 { color: var(--color-primary-700); }
+.text-primary-800 { color: var(--color-primary-800); }
+
+/* Additional semantic colors */
+.text-blue-600 { color: rgb(37 99 235); }
+.text-purple-600 { color: rgb(147 51 234); }
+.text-indigo-600 { color: rgb(79 70 229); }
+.text-orange-600 { color: rgb(234 88 12); }
+
+.dark .dark\:text-blue-400 { color: rgb(96 165 250); }
+.dark .dark\:text-purple-400 { color: rgb(196 181 253); }
+.dark .dark\:text-indigo-400 { color: rgb(129 140 248); }
+.dark .dark\:text-orange-400 { color: rgb(251 146 60); }
+
+/* Border utilities */
+.border-l-4 { border-left-width: 4px; }
+.border-primary-500 { border-color: var(--color-primary-500); }
+.border-primary-200 { border-color: var(--color-primary-200); }
+.border-primary-700 { border-color: var(--color-primary-700); }
+.border-primary-800 { border-color: var(--color-primary-800); }
+
+/* Additional themed background utilities */
+.bg-primary-50 { background-color: var(--color-primary-50); }
+.bg-primary-900\/20 { background-color: rgb(19 78 74 / 0.2); }
+.bg-primary-900\/10 { background-color: rgba(19, 78, 74, 0.1); }
+
+/* Error and success colors */
+.text-red-300 { color: rgb(252 165 165); }
+.text-red-400 { color: rgb(248 113 113); }
+.text-red-600 { color: rgb(220 38 38); }
+.text-red-800 { color: rgb(153 27 27); }
+.border-red-300 { border-color: rgb(252 165 165); }
+.border-red-700 { border-color: rgb(185 28 28); }
+
+/* Gradient backgrounds */
+.bg-gradient-to-br {
+  background-image: linear-gradient(to bottom right, var(--tw-gradient-from), var(--tw-gradient-to));
+}
+
+.from-primary-500 {
+  --tw-gradient-from: #2ebba8;
+  --tw-gradient-to: transparent;
+}
+
+.to-primary-600 {
+  --tw-gradient-to: #26a69a;
+}
+
+/* Enhanced shadow for step indicators */
+.dark .shadow-lg {
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.3), 0 4px 6px -2px rgba(0, 0, 0, 0.15);
+} 
