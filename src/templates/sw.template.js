@@ -598,6 +598,30 @@ self.addEventListener('fetch', (event) => {
   }
 
   /**
+   * Static File Handling
+   * Handle robots.txt and sitemap.xml before other processing
+   */
+  const url = new URL(event.request.url);
+  const pathname = url.pathname;
+  
+  // Handle robots.txt and sitemap.xml explicitly
+  if (pathname === '/robots.txt' || pathname === '/sitemap.xml') {
+    event.respondWith(
+      fetch(event.request)
+        .then(response => {
+          if (response.ok) {
+            return response;
+          }
+          throw new Error('File not found');
+        })
+        .catch(() => {
+          return new Response('Not Found', { status: 404 });
+        })
+    );
+    return;
+  }
+
+  /**
    * Development Mode Fetch Strategy
    * Network-first with minimal caching for faster development
    */
@@ -703,6 +727,22 @@ self.addEventListener('fetch', (event) => {
   event.respondWith(
     (async () => {
       try {
+        // Static file handling - robots.txt and sitemap.xml
+        const url = new URL(event.request.url);
+        const pathname = url.pathname;
+        
+        if (pathname === '/robots.txt' || pathname === '/sitemap.xml') {
+          try {
+            const response = await fetch(event.request);
+            if (response.ok) {
+              return response;
+            }
+            throw new Error('File not found');
+          } catch (error) {
+            return new Response('Not Found', { status: 404 });
+          }
+        }
+
         // Favicon handling
         if (event.request.url.includes('favicon.ico') || event.request.url.includes('favicon.svg')) {
           try {

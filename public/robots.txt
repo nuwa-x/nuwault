@@ -1,0 +1,9 @@
+User-agent: *
+Allow: /
+Disallow: 
+
+# Sitemap location
+Sitemap: https://nuwault.com/sitemap.xml
+
+# Crawl delay for respectful bots
+Crawl-delay: 1
