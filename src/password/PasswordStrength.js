@@ -130,16 +130,18 @@ export class PasswordStrength {
     else if (varietyScore >= 20) feedback.push(t('password.strength.feedback.variety.moderate'));
     else feedback.push(t('password.strength.feedback.variety.limited'));
 
-    // Entropy calculation with length-aware adjustments
+    // Entropy calculation with improved algorithm
     const uniqueChars = new Set(password).size;
     let entropyBonus = 0;
     
-    if (length >= 8) {
-      entropyBonus = Math.min(20, Math.floor(uniqueChars / password.length * 20));
-    } else {
-      const lengthPenalty = Math.max(0.2, length / 8);
-      entropyBonus = Math.min(20, Math.floor(uniqueChars / password.length * 20 * lengthPenalty));
-    }
+    // Calculate entropy based on both unique characters and password length
+    // Formula: Base entropy from unique chars + Length multiplier + Diversity factor
+    const baseEntropy = Math.min(15, uniqueChars * 1.5); // Max 15 points for unique chars
+    const lengthMultiplier = Math.min(1.5, length / 8); // Length factor (max 1.5x)
+    const diversityFactor = uniqueChars / length; // Penalize repetition (0-1)
+    
+    entropyBonus = Math.floor(baseEntropy * lengthMultiplier * Math.max(0.4, diversityFactor));
+    entropyBonus = Math.min(20, entropyBonus); // Cap at 20 points
     
     score += entropyBonus;
 
