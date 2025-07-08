@@ -46,26 +46,45 @@ Using different character types expands the password space and reduces predictab
 
 ### 3. Entropy Analysis (0-20 Points)
 
-Entropy measures the ratio of unique characters in the password and penalizes repeating patterns. Length-aware calculation provides appropriate scoring for passwords of different lengths.
+Entropy measures the uniqueness and complexity of characters in the password. It evaluates both the number of unique characters and their distribution throughout the password, providing a comprehensive score that favors longer passwords with diverse character sets while penalizing repetitive patterns.
+
+**Improved Entropy Algorithm:**
+
+The new entropy calculation uses a multi-factor approach:
+
+1. **Base Entropy**: Points based on unique character count
+2. **Length Multiplier**: Bonus for longer passwords  
+3. **Diversity Factor**: Penalty for character repetition
 
 **Calculation:**
 ```javascript
 const uniqueChars = new Set(password).size;
-let entropyBonus = 0;
+const baseEntropy = Math.min(15, uniqueChars * 1.5); // Max 15 points for unique chars
+const lengthMultiplier = Math.min(1.5, length / 8); // Length factor (max 1.5x)
+const diversityFactor = uniqueChars / length; // Penalize repetition (0-1)
 
-if (length >= 8) {
-  entropyBonus = Math.min(20, Math.floor(uniqueChars / password.length * 20));
-} else {
-  const lengthPenalty = Math.max(0.2, length / 8);
-  entropyBonus = Math.min(20, Math.floor(uniqueChars / password.length * 20 * lengthPenalty));
-}
+entropyBonus = Math.floor(baseEntropy * lengthMultiplier * Math.max(0.4, diversityFactor));
+entropyBonus = Math.min(20, entropyBonus); // Cap at 20 points
 ```
 
+**Algorithm Examples:**
+- **"abc"** (3 chars, 3 unique): baseEntropy=4.5, lengthMultiplier=0.375, diversityFactor=1.0 → **~1 point**
+- **"abcdefghijk"** (11 chars, 11 unique): baseEntropy=15, lengthMultiplier=1.375, diversityFactor=1.0 → **20 points**
+- **"aaabbbcccdd"** (11 chars, 4 unique): baseEntropy=6, lengthMultiplier=1.375, diversityFactor=0.36 → **~3 points**
+- **"Password123!"** (12 chars, 11 unique): baseEntropy=15, lengthMultiplier=1.5, diversityFactor=0.92 → **~20 points**
+
+**Key Algorithm Benefits:**
+- ✅ Longer passwords receive higher entropy scores
+- ✅ More unique characters increase entropy
+- ✅ Character repetition reduces entropy appropriately
+- ✅ Short passwords with all unique chars get low entropy (preventing false positives)
+- ✅ Balanced scoring prevents gaming the system
+
 **Entropy Feedback:**
-- 15-20 points: High entropy (diverse characters)
-- 10-14 points: Good entropy (reasonable diversity)
-- 5-9 points: Low entropy (limited diversity)
-- 0-4 points: Very low entropy (repetitive patterns)
+- 15-20 points: High entropy (excellent character diversity and length)
+- 10-14 points: Good entropy (reasonable diversity with good length)
+- 5-9 points: Low entropy (limited diversity or excessive repetition)
+- 0-4 points: Very low entropy (poor character distribution or very short length)
 
 ### 4. Pattern Penalties
 
@@ -149,7 +168,7 @@ export class PasswordStrength {
 
     // Length scoring with progressive thresholds
     // Character variety assessment
-    // Entropy calculation
+    // Improved entropy calculation with multi-factor approach
     // Pattern penalties
     
     return { score, level, text, color, width, details };
@@ -199,7 +218,6 @@ getTextColorClass(level) {
     default: return 'text-gray-600 dark:text-gray-400';
   }
 }
-```
 ```
 
 **Detailed Feedback Format:**
