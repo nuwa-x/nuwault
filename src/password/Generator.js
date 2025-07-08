@@ -592,19 +592,30 @@ export class PasswordGenerator {
       return;
     }
     
+    if (this.isAnimating) {
+      return;
+    }
+    
     if (this.autoGenerateTimeout) {
       clearTimeout(this.autoGenerateTimeout);
     }
     
+    const isMobile = window.innerWidth <= 768;
+    const debounceDelay = isMobile ? 200 : this.debounceDelay;
+    
     this.autoGenerateTimeout = setTimeout(() => {
       this.performPasswordGeneration();
-    }, this.debounceDelay);
+    }, debounceDelay);
   }
   
   /**
    * Core password generation function with validation and error handling
    */
   async performPasswordGeneration() {
+    if (this.isAnimating) {
+      return;
+    }
+    
     try {
       const keywords = this.keywordChips.getKeywords();
       const validKeywords = keywords.filter(keyword => keyword.trim());
@@ -618,7 +629,9 @@ export class PasswordGenerator {
         
         const password = await generatePassword(validKeywords, this.options);
         
-        await this.animatePasswordGeneration(password);
+        if (!this.isAnimating) {
+          await this.animatePasswordGeneration(password);
+        }
       } else {
         this.setPassword('');
       }
@@ -720,9 +733,12 @@ export class PasswordGenerator {
       if (currentFrame <= totalFrames) {
         this.animationFrameId = requestAnimationFrame(animate);
       } else {
-        this.setPassword(finalPassword);
         this.isAnimating = false;
         this.animationFrameId = null;
+        
+        setTimeout(() => {
+          this.setPassword(finalPassword);
+        }, 50);
       }
     };
 
@@ -937,10 +953,12 @@ export class PasswordGenerator {
       passwordOutput.style.transition = 'height 0.2s ease-out, min-height 0.2s ease-out';
     }
     
+    const currentPassword = password;
+    
     if (this.maskPassword) {
-      passwordOutput.value = this.maskPasswordString(password);
+      passwordOutput.value = this.maskPasswordString(currentPassword);
     } else {
-      passwordOutput.value = password;
+      passwordOutput.value = currentPassword;
     }
     
     this.autoResizeTextarea(passwordOutput);
@@ -951,14 +969,18 @@ export class PasswordGenerator {
       }, 200);
     }
     
-    if (!password || password.trim().length === 0) {
+    if (!currentPassword || currentPassword.trim().length === 0) {
       this.updateValidationState();
     } else {
       passwordOutput.placeholder = '';
     }
     
-    this.passwordStrength.updatePasswordStrength(password, this.element);
-    this.updateCopyButtonState();
+    requestAnimationFrame(() => {
+      if (this.originalPassword === currentPassword) {
+        this.passwordStrength.updatePasswordStrength(currentPassword, this.element);
+        this.updateCopyButtonState();
+      }
+    });
   }
 
   /**
