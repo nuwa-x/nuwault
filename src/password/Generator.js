@@ -11,6 +11,7 @@
 import { generatePassword } from '@nuwa-x/nuwault-core';
 import { SECURITY_CONFIG, DEFAULT_PASSWORD_OPTIONS, CHARACTER_SETS, KEYWORD_MANAGEMENT_OPTIONS } from '../utils/config.js';
 import { toast } from '../utils/toast.js';
+import { logger } from '../utils/logger.js';
 import { KeywordChips } from './KeywordChips.js';
 import { PasswordStrength } from './PasswordStrength.js';
 import { t } from '../utils/i18n.js';
@@ -44,7 +45,9 @@ export class PasswordGenerator {
     this.isAnimating = false;
     this.animationFrameId = null;
     this.autoGenerateTimeout = null;
+    this.lengthSliderTimeout = null;
     this.debounceDelay = 50;
+    this.lengthSliderDelay = 1500; // 1.5 second delay for length slider
     this.keywordInput = '';
     this.maskKeywords = KEYWORD_MANAGEMENT_OPTIONS.maskKeywords;
     this.autoGenerate = KEYWORD_MANAGEMENT_OPTIONS.autoGeneratePassword;
@@ -303,7 +306,27 @@ export class PasswordGenerator {
         this.options.length = currentValue;
         lengthInput.value = this.options.length;
         lastValue = currentValue;
-        this.autoGeneratePassword();
+        
+        // Show visual feedback that generation is pending
+        const passwordOutput = this.element.querySelector('#password-output');
+        if (passwordOutput && passwordOutput.value.trim()) {
+          passwordOutput.style.opacity = '0.6';
+          passwordOutput.style.transition = 'opacity 0.2s ease';
+        }
+        
+        // Clear any existing timeout
+        if (this.lengthSliderTimeout) {
+          clearTimeout(this.lengthSliderTimeout);
+        }
+        
+        // Set a longer delay for length slider changes
+        this.lengthSliderTimeout = setTimeout(() => {
+          // Restore opacity before generating
+          if (passwordOutput) {
+            passwordOutput.style.opacity = '1';
+          }
+          this.autoGeneratePassword();
+        }, this.lengthSliderDelay);
       }
     });
 
@@ -329,7 +352,15 @@ export class PasswordGenerator {
       lengthSlider.value = inputValue;
       lastValue = inputValue;
       
-      this.autoGeneratePassword();
+      // Clear any existing timeout
+      if (this.lengthSliderTimeout) {
+        clearTimeout(this.lengthSliderTimeout);
+      }
+      
+      // Set a longer delay for length input changes
+      this.lengthSliderTimeout = setTimeout(() => {
+        this.autoGeneratePassword();
+      }, this.lengthSliderDelay);
     });
 
     lengthInput.addEventListener('focus', (e) => {
@@ -352,7 +383,15 @@ export class PasswordGenerator {
       lengthSlider.value = inputValue;
       lastValue = inputValue;
       
-      this.autoGeneratePassword();
+      // Clear any existing timeout
+      if (this.lengthSliderTimeout) {
+        clearTimeout(this.lengthSliderTimeout);
+      }
+      
+      // Set a longer delay for length input blur
+      this.lengthSliderTimeout = setTimeout(() => {
+        this.autoGeneratePassword();
+      }, this.lengthSliderDelay);
     });
 
     const checkboxes = ['uppercase', 'lowercase', 'numbers', 'symbols'];
@@ -597,8 +636,12 @@ export class PasswordGenerator {
       return;
     }
     
+    // Clear any existing timeouts
     if (this.autoGenerateTimeout) {
       clearTimeout(this.autoGenerateTimeout);
+    }
+    if (this.lengthSliderTimeout) {
+      clearTimeout(this.lengthSliderTimeout);
     }
     
     const isMobile = window.innerWidth <= 768;
@@ -624,19 +667,57 @@ export class PasswordGenerator {
       const totalCharacters = validKeywords.join('').trim().length;
       const hasMinimumLength = totalCharacters >= 3;
       
-      if (validKeywords.length > 0 && hasMinimumLength &&
-          (this.options.includeUppercase || this.options.includeLowercase || 
-           this.options.includeNumbers || this.options.includeSymbols)) {
-        
+      // Validate that at least one character type is selected
+      const hasValidCharacterTypes = this.options.includeUppercase || 
+                                    this.options.includeLowercase || 
+                                    this.options.includeNumbers || 
+                                    this.options.includeSymbols;
+      
+      if (validKeywords.length > 0 && hasMinimumLength && hasValidCharacterTypes) {
+        // Generate password with current options
         const password = await generatePassword(validKeywords, this.options);
         
-        if (!this.isAnimating) {
-          await this.animatePasswordGeneration(password);
+        // Validate the generated password
+        if (password && password.length === this.options.length) {
+          // Check if password contains required character types
+          let hasUppercase = false, hasLowercase = false, hasNumbers = false, hasSymbols = false;
+          
+          if (this.options.includeUppercase) {
+            hasUppercase = /[A-Z]/.test(password);
+          }
+          if (this.options.includeLowercase) {
+            hasLowercase = /[a-z]/.test(password);
+          }
+          if (this.options.includeNumbers) {
+            hasNumbers = /[0-9]/.test(password);
+          }
+          if (this.options.includeSymbols) {
+            hasSymbols = /[!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?]/.test(password);
+          }
+          
+          const isValidPassword = (!this.options.includeUppercase || hasUppercase) &&
+                                 (!this.options.includeLowercase || hasLowercase) &&
+                                 (!this.options.includeNumbers || hasNumbers) &&
+                                 (!this.options.includeSymbols || hasSymbols);
+          
+          if (isValidPassword && !this.isAnimating) {
+            await this.animatePasswordGeneration(password);
+          } else {
+            // Retry generation if password doesn't meet requirements
+            logger.warn('[PasswordGenerator] Generated password does not meet requirements, retrying...');
+            setTimeout(() => {
+              this.performPasswordGeneration();
+            }, 100);
+          }
+        } else {
+          logger.error('[PasswordGenerator] Generated password length mismatch:', password?.length, 'expected:', this.options.length);
+          this.setPassword('');
         }
       } else {
         this.setPassword('');
       }
     } catch (error) {
+      logger.error('[PasswordGenerator] Password generation error:', error);
       this.setPassword('');
     }
   }
