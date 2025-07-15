@@ -497,6 +497,7 @@ export class PasswordGenerator {
       const keywordInputElement = this.element.querySelector('#keyword-input');
       if (keywordInputElement) {
         keywordInputElement.value = '';
+        keywordInputElement.blur();
         this.updateAddButtonState();
         this.updateInputVisualFeedback(keywordInputElement);
       }
