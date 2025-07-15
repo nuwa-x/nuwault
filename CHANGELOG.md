@@ -5,6 +5,32 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [1.1.0] - 2025-07-16
+
+### Added
+- Enhanced password generation accuracy with character set validation
+- Improved mobile keyboard UX by automatically closing keyboard after keyword input
+- Added visual feedback for pending password updates during length adjustments
+
+### Changed
+- Improved entropy calculation algorithm for password strength analysis
+- Updated password strength documentation to describe the new entropy algorithm
+- Enhanced password generation responsiveness with 1.5-second delay for length slider changes
+
+### Fixed
+- Fixed password generation to ensure output matches required character set constraints
+- Fixed mobile keyboard not closing when keyword input is cleared
+- Fixed race conditions in password generation during length adjustments
+
+### Security
+- Added validation to ensure generated passwords contain all selected character types
+- Implemented retry mechanism for password generation when validation fails
+
+### Dependencies
+- Updated @babel, sharp, rollup, vite, i18next and other dependencies to latest versions
+- Applied multiple patch-level and minor version bumps for improved compatibility
+- Ensures compatibility with latest upstream releases and security fixes
+
 ## [1.0.1] - 2025-07-08
 
 ### Fixed
