@@ -45,10 +45,10 @@ export default defineConfig({
   // PWA optimizations
   server: {
     host: true, // Allow external connections
-    allowedHosts: ['demo.nuwault.com', 'localhost', '127.0.0.1']
+    allowedHosts: ['localhost', '127.0.0.1']
   },
   preview: {
     host: true,
-    allowedHosts: ['demo.nuwault.com', 'localhost', '127.0.0.1']
+    allowedHosts: ['localhost', '127.0.0.1']
   }
 }) 
