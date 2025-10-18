@@ -228,8 +228,8 @@
       },
       "license": {
         "title": "License",
-        "mitLicense": "MIT License",
-        "description": "Nuwault is open-source software licensed under the MIT license. Feel free to use, modify, and distribute."
+        "gplLicense": "GNU GPLv3 License",
+        "description": "Nuwault is open-source software licensed under the GNU General Public License v3.0 (GPLv3). You are free to use, modify, and distribute under the same license terms."
       }
     },
     "copyright": "© {{year}} NuwaX"

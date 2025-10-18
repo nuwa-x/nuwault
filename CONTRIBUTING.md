@@ -261,7 +261,7 @@ Contributors are acknowledged in:
 
 ## License
 
-By contributing to Nuwault, you agree that your contributions will be licensed under the MIT License.
+By contributing to Nuwault, you agree that your contributions will be licensed under the GNU General Public License v3.0 (GPL-3.0).
 
 ---
 

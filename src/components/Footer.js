@@ -113,8 +113,8 @@ class FooterController {
               ${t('footer.sections.license.title')}
             </h3>
             <p class="text-sm text-gray-600 dark:text-gray-400 mb-2">
-              <a href="https://opensource.org/licenses/MIT" target="_blank" rel="noopener noreferrer" class="license-link underline">
-                ${t('footer.sections.license.mitLicense')}
+              <a href="https://www.gnu.org/licenses/gpl-3.0" target="_blank" rel="noopener noreferrer" class="license-link underline">
+                ${t('footer.sections.license.gplLicense')}
               </a>
             </p>
             <p class="text-sm text-gray-600 dark:text-gray-400">

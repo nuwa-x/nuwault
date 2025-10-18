@@ -228,8 +228,8 @@
       },
       "license": {
         "title": "Lisans",
-        "mitLicense": "MIT Lisansı",
-        "description": "Nuwault, MIT lisansı altında lisanslanan açık kaynaklı bir yazılımdır. Kullanmaktan, değiştirmekten ve dağıtmaktan çekinmeyin."
+        "gplLicense": "GNU GPLv3 Lisansı",
+        "description": "Nuwault, GNU Genel Kamu Lisansı v3.0 (GPLv3) altında lisanslanan açık kaynak bir yazılımdır. Aynı lisans şartları altında kullanabilir, değiştirebilir ve dağıtabilirsiniz."
       }
     },
     "copyright": "© {{year}} NuwaX"
