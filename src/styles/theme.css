@@ -23,9 +23,9 @@
 :root {
   /* Light theme colors */
   --bg-primary: #ffffff;
-  --bg-secondary: #fafbfc;
+  --bg-secondary: #f1f2f2;
   --bg-tertiary: #ffffff;
-  --bg-quaternary: #f3f4f6;
+  --bg-quaternary: #fafafa;
   
   /* Primary colors */
   --primary-main: #2ebba8;
@@ -64,10 +64,10 @@
 
 .dark {
   /* Dark theme colors */
-  --bg-primary: #0f172a;
-  --bg-secondary: #0b1325;
-  --bg-tertiary: #334155;
-  --bg-quaternary: #475569;
+  --bg-primary: #111111;
+  --bg-secondary: #1a1a1a;
+  --bg-tertiary: #2a2a2a;
+  --bg-quaternary: #3a3a3a;
 }
 
 /* Background colors */
