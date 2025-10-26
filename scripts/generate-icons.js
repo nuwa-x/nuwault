@@ -62,7 +62,7 @@ async function generateIcons() {
         await sharp(SOURCE_SVG)
           .resize(size, size, {
             fit: 'contain',
-            background: { r: 46, g: 187, b: 168, alpha: 1 } // Brand teal color (#2ebba8)
+            background: { r: 0, g: 0, b: 0, alpha: 0 }
           })
           .png()
           .toFile(outputPath);
