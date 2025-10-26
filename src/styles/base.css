@@ -8,17 +8,17 @@
 
 /* Custom theme configuration */
 @theme {
-  --color-primary-50: #ecfdf5;
-  --color-primary-100: #d1fae5;
-  --color-primary-200: #a7f3d0;
-  --color-primary-300: #6ee7b7;
-  --color-primary-400: #34d399;
-  --color-primary-500: #2ebba8;
-  --color-primary-600: #2ebba8;
-  --color-primary-700: #047857;
-  --color-primary-800: #065f46;
-  --color-primary-900: #064e3b;
-  --color-primary-950: #022c22;
+  /* Brand colors - referencing from theme.css */
+  --color-primary-50: var(--teal-50);
+  --color-primary-100: var(--teal-100);
+  --color-primary-200: var(--teal-200);
+  --color-primary-300: var(--teal-300);
+  --color-primary-400: var(--teal-400);
+  --color-primary-500: var(--teal-500);
+  --color-primary-600: var(--teal-600);
+  --color-primary-700: var(--teal-700);
+  --color-primary-800: var(--teal-800);
+  --color-primary-900: var(--teal-900);
   
   --animate-fade-in: fadeIn 0.5s ease-in-out;
   --animate-slide-up: slideUp 0.5s ease-out;
@@ -177,13 +177,13 @@ hr {
 
 /* Global text selection styles */
 ::selection {
-  background-color: var(--color-primary-200);
-  color: var(--color-primary-900);
+  background-color: var(--teal-200);
+  color: var(--teal-900);
 }
 
 .dark ::selection {
-  background-color: var(--color-primary-700);
-  color: var(--color-primary-100);
+  background-color: var(--teal-700);
+  color: var(--teal-100);
 }
 
 /* Input field specific selection */
@@ -192,8 +192,8 @@ hr {
 input[type="text"]::selection,
 input[type="number"]::selection,
 textarea::selection {
-  background-color: var(--color-primary-200);
-  color: var(--color-primary-900);
+  background-color: var(--teal-200);
+  color: var(--teal-900);
 }
 
 .dark .input-field::selection,
@@ -201,8 +201,8 @@ textarea::selection {
 .dark input[type="text"]::selection,
 .dark input[type="number"]::selection,
 .dark textarea::selection {
-  background-color: var(--color-primary-700);
-  color: var(--color-primary-100);
+  background-color: var(--teal-700);
+  color: var(--teal-100);
 }
 
 /* Header sticky transition */

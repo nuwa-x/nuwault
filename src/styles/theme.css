@@ -4,83 +4,234 @@
  * @author NuwaX
  */
 
-/* Essential colors with CSS variables */
+/* ============================================
+   BRAND COLORS - Base Definitions
+   ============================================ */
 :root {
-  --gray-50: rgb(249 250 251);
-  --gray-100: rgb(243 244 246);
-  --gray-200: rgb(229 231 235);
-  --gray-300: rgb(209 213 219);
-  --gray-400: rgb(156 163 175);
-  --gray-500: rgb(107 114 128);
-  --gray-600: rgb(75 85 99);
-  --gray-700: rgb(55 65 81);
-  --gray-800: rgb(31 41 55);
-  --gray-900: rgb(17 24 39);
-  --gray-950: rgb(3 7 18);
+  /* Brand Colors - Base Values */
+  --brand-teal: #2ebba8;
+  --brand-red: #e34546;
+  --brand-blue: #3c7bbf;
+  --brand-yellow: #e9b848;
+  --brand-dark: #242424;
+  --brand-light: #f1f2f2;
 }
 
-/* Theme specific colors */
+/* ============================================
+   TEAL (Primary) - Color Scale
+   ============================================ */
 :root {
-  /* Light theme colors */
+  --teal-50: #f0fdfb;
+  --teal-100: #ccfaf3;
+  --teal-200: #99f5e7;
+  --teal-300: #5eebda;
+  --teal-400: #2ed4c4;
+  --teal-500: var(--brand-teal); /* #2ebba8 */
+  --teal-600: #26a69a;
+  --teal-700: #1f8a7d;
+  --teal-800: #1a6e64;
+  --teal-900: #165b53;
+  
+  /* Teal hover states */
+  --teal-hover-light: var(--teal-600);
+  --teal-hover-dark: var(--teal-700);
+}
+
+/* ============================================
+   RED (Danger) - Color Scale
+   ============================================ */
+:root {
+  --red-50: #fef2f2;
+  --red-100: #fee2e2;
+  --red-200: #fecaca;
+  --red-300: #fca5a6;
+  --red-400: #f87171;
+  --red-500: var(--brand-red); /* #e34546 */
+  --red-600: #dc2626;
+  --red-700: #b91c1c;
+  --red-800: #991b1b;
+  --red-900: #7f1d1d;
+  
+  /* Red hover states */
+  --red-hover-light: var(--red-600);
+  --red-hover-dark: var(--red-700);
+}
+
+/* ============================================
+   BLUE (Info) - Color Scale
+   ============================================ */
+:root {
+  --blue-50: #eff6ff;
+  --blue-100: #dbeafe;
+  --blue-200: #bfdbfe;
+  --blue-300: #93c5fd;
+  --blue-400: #60a5fa;
+  --blue-500: var(--brand-blue); /* #3c7bbf */
+  --blue-600: #2563eb;
+  --blue-700: #1d4ed8;
+  --blue-800: #1e40af;
+  --blue-900: #1e3a8a;
+  
+  /* Blue hover states */
+  --blue-hover-light: var(--blue-600);
+  --blue-hover-dark: var(--blue-700);
+}
+
+/* ============================================
+   YELLOW (Warning) - Color Scale
+   ============================================ */
+:root {
+  --yellow-50: #fefce8;
+  --yellow-100: #fef9c3;
+  --yellow-200: #fef08a;
+  --yellow-300: #fde047;
+  --yellow-400: #facc15;
+  --yellow-500: var(--brand-yellow); /* #e9b848 */
+  --yellow-600: #ca8a04;
+  --yellow-700: #a16207;
+  --yellow-800: #854d0e;
+  --yellow-900: #713f12;
+  
+  /* Yellow hover states */
+  --yellow-hover-light: var(--yellow-600);
+  --yellow-hover-dark: var(--yellow-700);
+}
+
+/* ============================================
+   GRAY - Neutral Scale
+   ============================================ */
+:root {
+  --gray-50: var(--brand-light); /* #f1f2f2 */
+  --gray-100: #e5e7e8;
+  --gray-200: #cfd2d4;
+  --gray-300: #b3b7ba;
+  --gray-400: #8b9196;
+  --gray-500: #6b7178;
+  --gray-600: #525960;
+  --gray-700: #3d4349;
+  --gray-800: #2e3237;
+  --gray-900: var(--brand-dark); /* #242424 */
+  --gray-950: #1a1a1a;
+}
+
+/* ============================================
+   THEME SEMANTIC COLORS
+   ============================================ */
+:root {
+  /* Background layers */
   --bg-primary: #ffffff;
-  --bg-secondary: #f1f2f2;
+  --bg-secondary: var(--brand-light);
   --bg-tertiary: #ffffff;
   --bg-quaternary: #fafafa;
   
-  /* Primary colors */
-  --primary-main: #2ebba8;
-  --primary-gradient-light: linear-gradient(135deg, #2ebba8 0%, #26a69a 100%);
-  --primary-gradient-dark: linear-gradient(135deg, #2ebba8 0%, #249688 100%);
-  --primary-hover-light: #26a69a;
-  --primary-hover-dark: #249688;
+  /* Primary (Teal) aliases */
+  --primary-main: var(--brand-teal);
+  --primary-hover: var(--teal-hover-light);
   
-  /* Primary color scale */
-  --color-primary-50: #f0fdfa;
-  --color-primary-100: #ccfbf1;
-  --color-primary-200: #99f6e4;
-  --color-primary-300: #5eead4;
-  --color-primary-400: #2dd4bf;
-  --color-primary-500: #14b8a6;
-  --color-primary-600: #0d9488;
-  --color-primary-700: #0f766e;
-  --color-primary-800: #115e59;
-  --color-primary-900: #134e4a;
+  /* Gradients */
+  --primary-gradient: linear-gradient(135deg, var(--teal-500) 0%, var(--teal-600) 100%);
+  --primary-gradient-hover: linear-gradient(135deg, var(--teal-600) 0%, var(--teal-700) 100%);
   
-  /* Icon shadows */
-  --icon-shadow-light: 0 8px 32px rgba(46, 187, 168, 0.25);
-  --icon-shadow-dark: 0 8px 32px rgba(46, 187, 168, 0.3);
+  /* Shadows */
+  --shadow-teal: 0 8px 32px rgba(46, 187, 168, 0.25);
+  --shadow-red: 0 8px 32px rgba(227, 69, 70, 0.25);
+  --shadow-blue: 0 8px 32px rgba(60, 123, 191, 0.25);
+  --shadow-yellow: 0 8px 32px rgba(233, 184, 72, 0.25);
   
-  /* Form element colors */
-  --primary-form-color: #2ebba8;
-  --primary-form-hover-light: #26a69a;
-  --primary-form-hover-dark: #249688;
-  --checkbox-border-light: #d1d5db;
-  --checkbox-border-dark: #4b5563;
-  --checkbox-bg-light: #f9fafb;
-  --checkbox-bg-dark: #374151;
-  --slider-track-light: #e5e7eb;
-  --slider-track-dark: #475569;
+  /* Form elements */
+  --input-border: var(--gray-300);
+  --input-bg: var(--gray-50);
+  --input-focus: var(--teal-500);
+  
+  /* Legacy compatibility */
+  --color-primary-50: var(--teal-50);
+  --color-primary-100: var(--teal-100);
+  --color-primary-200: var(--teal-200);
+  --color-primary-300: var(--teal-300);
+  --color-primary-400: var(--teal-400);
+  --color-primary-500: var(--teal-500);
+  --color-primary-600: var(--teal-600);
+  --color-primary-700: var(--teal-700);
+  --color-primary-800: var(--teal-800);
+  --color-primary-900: var(--teal-900);
 }
 
+/* ============================================
+   DARK MODE
+   ============================================ */
 .dark {
-  /* Dark theme colors */
-  --bg-primary: #111111;
-  --bg-secondary: #1a1a1a;
-  --bg-tertiary: #2a2a2a;
-  --bg-quaternary: #3a3a3a;
+  /* Dark background layers */
+  --bg-primary: var(--gray-950);
+  --bg-secondary: var(--gray-900);
+  --bg-tertiary: var(--gray-800);
+  --bg-quaternary: var(--gray-700);
+  
+  /* Dark mode hover states */
+  --primary-hover: var(--teal-hover-dark);
+  
+  /* Dark mode gradients */
+  --primary-gradient: linear-gradient(135deg, var(--teal-600) 0%, var(--teal-700) 100%);
+  --primary-gradient-hover: linear-gradient(135deg, var(--teal-700) 0%, var(--teal-800) 100%);
+  
+  /* Dark mode shadows */
+  --shadow-teal: 0 8px 32px rgba(46, 187, 168, 0.3);
+  --shadow-red: 0 8px 32px rgba(227, 69, 70, 0.3);
+  --shadow-blue: 0 8px 32px rgba(60, 123, 191, 0.3);
+  --shadow-yellow: 0 8px 32px rgba(233, 184, 72, 0.3);
+  
+  /* Dark mode form elements */
+  --input-border: var(--gray-600);
+  --input-bg: var(--gray-800);
 }
 
-/* Background colors */
+/* ============================================
+   UTILITY CLASSES - Background Colors
+   ============================================ */
 .bg-white { background-color: white; }
+
+/* Gray backgrounds */
 .bg-gray-50 { background-color: var(--gray-50); }
 .bg-gray-100 { background-color: var(--gray-100); }
 .bg-gray-200 { background-color: var(--gray-200); }
 .bg-gray-300 { background-color: var(--gray-300); }
 .bg-gray-600 { background-color: var(--gray-600); }
-.bg-primary-500 { background-color: var(--color-primary-500); }
+.bg-gray-800 { background-color: var(--gray-800); }
+.bg-gray-900 { background-color: var(--gray-900); }
 
-/* Text colors */
+/* Teal backgrounds */
+.bg-teal-50 { background-color: var(--teal-50); }
+.bg-teal-100 { background-color: var(--teal-100); }
+.bg-teal-500 { background-color: var(--teal-500); }
+.bg-teal-600 { background-color: var(--teal-600); }
+.bg-teal-900 { background-color: var(--teal-900); }
+
+/* Red backgrounds */
+.bg-red-50 { background-color: var(--red-50); }
+.bg-red-100 { background-color: var(--red-100); }
+.bg-red-500 { background-color: var(--red-500); }
+.bg-red-600 { background-color: var(--red-600); }
+
+/* Blue backgrounds */
+.bg-blue-50 { background-color: var(--blue-50); }
+.bg-blue-100 { background-color: var(--blue-100); }
+.bg-blue-500 { background-color: var(--blue-500); }
+.bg-blue-600 { background-color: var(--blue-600); }
+
+/* Yellow backgrounds */
+.bg-yellow-50 { background-color: var(--yellow-50); }
+.bg-yellow-100 { background-color: var(--yellow-100); }
+.bg-yellow-500 { background-color: var(--yellow-500); }
+.bg-yellow-600 { background-color: var(--yellow-600); }
+
+/* Legacy primary aliases */
+.bg-primary-500 { background-color: var(--teal-500); }
+
+/* ============================================
+   UTILITY CLASSES - Text Colors
+   ============================================ */
 .text-white { color: white; }
+
+/* Gray text */
 .text-gray-300 { color: var(--gray-300); }
 .text-gray-400 { color: var(--gray-400); }
 .text-gray-500 { color: var(--gray-500); }
@@ -89,57 +240,135 @@
 .text-gray-800 { color: var(--gray-800); }
 .text-gray-900 { color: var(--gray-900); }
 
-/* Green colors for save buttons */
-.text-green-600 { color: rgb(22, 163, 74); }
-.text-green-700 { color: rgb(21, 128, 61); }
+/* Teal text */
+.text-teal-400 { color: var(--teal-400); }
+.text-teal-500 { color: var(--teal-500); }
+.text-teal-600 { color: var(--teal-600); }
+.text-teal-700 { color: var(--teal-700); }
+.text-teal-800 { color: var(--teal-800); }
 
-/* Dark theme background colors */
-.dark .dark\:bg-slate-800 { background-color: #1e293b; }
+/* Red text */
+.text-red-300 { color: var(--red-300); }
+.text-red-400 { color: var(--red-400); }
+.text-red-500 { color: var(--red-500); }
+.text-red-600 { color: var(--red-600); }
+.text-red-800 { color: var(--red-800); }
+
+/* Blue text */
+.text-blue-500 { color: var(--blue-500); }
+.text-blue-600 { color: var(--blue-600); }
+
+/* Yellow text */
+.text-yellow-500 { color: var(--yellow-500); }
+.text-yellow-600 { color: var(--yellow-600); }
+
+/* Green colors for save buttons (kept for compatibility) */
+.text-green-600 { color: var(--teal-600); }
+.text-green-700 { color: var(--teal-700); }
+
+/* ============================================
+   UTILITY CLASSES - Dark Mode Variants
+   ============================================ */
+.dark .dark\:bg-slate-800 { background-color: var(--gray-800); }
+.dark .dark\:bg-gray-600 { background-color: var(--gray-600); }
 .dark .dark\:bg-gray-800 { background-color: var(--bg-tertiary); }
 .dark .dark\:bg-gray-900 { background-color: var(--bg-primary); }
-.dark .dark\:bg-gray-600 { background-color: var(--gray-600); }
+.dark .dark\:bg-teal-600 { background-color: var(--teal-600); }
+.dark .dark\:bg-teal-700 { background-color: var(--teal-700); }
+.dark .dark\:bg-teal-900 { background-color: var(--teal-900); }
+
 .dark .dark\:text-white { color: white; }
 .dark .dark\:text-gray-300 { color: var(--gray-300); }
 .dark .dark\:text-gray-400 { color: var(--gray-400); }
+.dark .dark\:text-teal-400 { color: var(--teal-400); }
 
-/* Border colors */
+/* ============================================
+   UTILITY CLASSES - Border Colors
+   ============================================ */
 .border-gray-200 { border-color: var(--gray-200); }
 .border-gray-300 { border-color: var(--gray-300); }
 .border-gray-700 { border-color: var(--gray-700); }
 .border-gray-800 { border-color: var(--gray-800); }
 
-/* Additional border colors for keyword chips */
-.border-primary-300 { border-color: var(--color-primary-300); }
+.border-teal-200 { border-color: var(--teal-200); }
+.border-teal-300 { border-color: var(--teal-300); }
+.border-teal-500 { border-color: var(--teal-500); }
+.border-teal-700 { border-color: var(--teal-700); }
+.border-teal-800 { border-color: var(--teal-800); }
+
+.border-red-300 { border-color: var(--red-300); }
+.border-red-700 { border-color: var(--red-700); }
+
+/* Legacy primary aliases */
+.border-primary-300 { border-color: var(--teal-300); }
+.border-primary-200 { border-color: var(--teal-200); }
+.border-primary-500 { border-color: var(--teal-500); }
+.border-primary-700 { border-color: var(--teal-700); }
+.border-primary-800 { border-color: var(--teal-800); }
+
 .dark .dark\:border-gray-700 { border-color: rgba(255, 255, 255, 0.15); }
 .dark .dark\:border-gray-800 { border-color: rgba(255, 255, 255, 0.2); }
 
-/* Hover states */
+/* ============================================
+   UTILITY CLASSES - Hover States
+   ============================================ */
 .hover\:bg-gray-100:hover { background-color: var(--gray-100); }
-.hover\:bg-primary-500:hover { background-color: var(--color-primary-500); }
+.hover\:bg-teal-50:hover { background-color: var(--teal-50); }
+.hover\:bg-teal-400:hover { background-color: var(--teal-400); }
+.hover\:bg-teal-500:hover { background-color: var(--teal-500); }
+.hover\:bg-red-50:hover { background-color: var(--red-50); }
+.hover\:bg-red-400:hover { background-color: var(--red-400); }
 .hover\:text-white:hover { color: white; }
+.hover\:text-teal-600:hover { color: var(--teal-600); }
+.hover\:text-red-600:hover { color: var(--red-600); }
 
-/* Light theme hover background colors for keyword chips */
-.hover\:bg-primary-50:hover { background-color: var(--color-primary-50); }
-.hover\:bg-primary-400:hover { background-color: var(--color-primary-300); }
-.hover\:bg-red-50:hover { background-color: rgb(254, 242, 242); }
-.hover\:bg-green-50:hover { background-color: rgb(240, 253, 244); }
+/* Legacy primary hover aliases */
+.hover\:bg-primary-50:hover { background-color: var(--teal-50); }
+.hover\:bg-primary-400:hover { background-color: var(--teal-400); }
+.hover\:bg-primary-500:hover { background-color: var(--teal-500); }
+.hover\:bg-green-50:hover { background-color: var(--teal-50); }
+
+.hover\:shadow-md:hover { 
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06); 
+}
+
+/* Dark mode hover states */
 .dark .dark\:hover\:bg-gray-800:hover { background-color: var(--bg-tertiary); }
-.dark .dark\:hover\:bg-primary-500:hover { background-color: var(--color-primary-500); }
-.hover\:shadow-md:hover { box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06); }
+.dark .dark\:hover\:bg-teal-500:hover { background-color: var(--teal-500); }
+.dark .dark\:hover\:bg-teal-400:hover { background-color: var(--teal-400); }
+.dark .dark\:hover\:bg-red-400:hover { background-color: var(--red-400); }
+.dark .dark\:hover\:text-red-700:hover { color: var(--red-700); }
+.dark .dark\:hover\:text-teal-400:hover { color: var(--teal-400); }
 
-/* Remove button hover states */
-.hover\:bg-red-400:hover { background-color: rgb(248 113 113); }
-.hover\:text-red-600:hover { color: rgb(220 38 38); }
-.dark .dark\:hover\:bg-red-400:hover { background-color: rgb(248 113 113); }
-.dark .dark\:hover\:text-red-700:hover { color: rgb(185 28 28); }
+/* Legacy dark mode hover aliases */
+.dark .dark\:hover\:bg-primary-500:hover { background-color: var(--teal-500); }
 
-/* Primary color utilities */
-.text-primary-600 { color: var(--color-primary-600); }
-.dark .dark\:text-primary-400 { color: var(--color-primary-400); }
-.hover\:text-primary-600:hover { color: var(--color-primary-600); }
-.dark .dark\:hover\:text-primary-400:hover { color: var(--color-primary-400); }
+/* Legacy primary text utilities */
+.text-primary-200 { color: var(--teal-200); }
+.text-primary-300 { color: var(--teal-300); }
+.text-primary-400 { color: var(--teal-400); }
+.text-primary-600 { color: var(--teal-600); }
+.text-primary-700 { color: var(--teal-700); }
+.text-primary-800 { color: var(--teal-800); }
 
-/* Custom component styles with CSS variables */
+.dark .dark\:text-primary-400 { color: var(--teal-400); }
+.hover\:text-primary-600:hover { color: var(--teal-600); }
+.dark .dark\:hover\:text-primary-400:hover { color: var(--teal-400); }
+
+/* Additional semantic colors */
+.text-blue-600 { color: var(--blue-600); }
+.text-purple-600 { color: rgb(147 51 234); }
+.text-indigo-600 { color: rgb(79 70 229); }
+.text-orange-600 { color: rgb(234 88 12); }
+
+.dark .dark\:text-blue-400 { color: var(--blue-400); }
+.dark .dark\:text-purple-400 { color: rgb(196 181 253); }
+.dark .dark\:text-indigo-400 { color: rgb(129 140 248); }
+.dark .dark\:text-orange-400 { color: rgb(251 146 60); }
+
+/* ============================================
+   COMPONENT STYLES
+   ============================================ */
 
 /* Layout backgrounds */
 .layout-bg {
@@ -171,16 +400,15 @@
 
 /* Icon containers */
 .icon-container {
-  background: var(--primary-gradient-light);
+  background: var(--primary-gradient);
+  box-shadow: var(--shadow-teal);
   transition: all 0.3s ease;
 }
 
-.dark .icon-container {
-  background: var(--primary-gradient-dark);
-}
-
 .icon-container:hover {
+  background: var(--primary-gradient-hover);
   transform: scale(1.1);
+  box-shadow: 0 12px 40px rgba(46, 187, 168, 0.35);
 }
 
 .icon-container svg {
@@ -191,16 +419,15 @@
 
 /* Scroll to top button */
 .scroll-to-top {
-  background: var(--primary-gradient-light);
+  background: var(--primary-gradient);
+  box-shadow: var(--shadow-teal);
   transition: all 0.3s ease;
 }
 
-.dark .scroll-to-top {
-  background: var(--primary-gradient-dark);
-}
-
 .scroll-to-top:hover {
+  background: var(--primary-gradient-hover);
   transform: scale(1.1);
+  box-shadow: 0 12px 40px rgba(46, 187, 168, 0.35);
 }
 
 .scroll-to-top svg {
@@ -211,84 +438,52 @@
 
 /* Footer links */
 .footer-link {
-  color: #6b7280; /* gray-500 */
+  color: var(--gray-500);
   transition: color 0.2s ease;
 }
 
 .footer-link:hover {
-  color: var(--primary-main);
+  color: var(--teal-500);
 }
 
 .dark .footer-link {
-  color: #9ca3af; /* gray-400 */
+  color: var(--gray-400);
 }
 
 .dark .footer-link:hover {
-  color: var(--primary-main);
+  color: var(--teal-400);
 }
 
 /* License link */
 .license-link {
-  color: var(--primary-main);
+  color: var(--teal-500);
   transition: color 0.2s ease;
 }
 
 .license-link:hover {
-  color: var(--primary-hover-light);
+  color: var(--primary-hover);
 }
 
-.dark .license-link:hover {
-  color: var(--primary-hover-dark);
-}
+/* ============================================
+   LEGACY COMPATIBILITY
+   ============================================ */
 
-/* Extended primary color utilities */
-.bg-primary-100 { background-color: var(--color-primary-100); }
-.bg-primary-300 { background-color: var(--color-primary-300); }
-.bg-primary-500 { background-color: var(--color-primary-500); }
-.bg-primary-600 { background-color: var(--color-primary-600); }
-.bg-primary-900 { background-color: var(--color-primary-900); }
+/* Extended primary color utilities (legacy aliases) */
+.bg-primary-50 { background-color: var(--teal-50); }
+.bg-primary-100 { background-color: var(--teal-100); }
+.bg-primary-300 { background-color: var(--teal-300); }
+.bg-primary-500 { background-color: var(--teal-500); }
+.bg-primary-600 { background-color: var(--teal-600); }
+.bg-primary-900 { background-color: var(--teal-900); }
+.bg-primary-900\/20 { background-color: rgba(22, 91, 83, 0.2); }
+.bg-primary-900\/10 { background-color: rgba(22, 91, 83, 0.1); }
 
-.dark .dark\:bg-primary-600 { background-color: var(--color-primary-600); }
-.dark .dark\:bg-primary-700 { background-color: var(--color-primary-700); }
-.dark .dark\:bg-primary-900 { background-color: var(--color-primary-900); }
-
-/* More primary text colors */
-.text-primary-400 { color: var(--color-primary-400); }
-.text-primary-200 { color: var(--color-primary-200); }
-.text-primary-300 { color: var(--color-primary-300); }
-.text-primary-700 { color: var(--color-primary-700); }
-.text-primary-800 { color: var(--color-primary-800); }
-
-/* Additional semantic colors */
-.text-blue-600 { color: rgb(37 99 235); }
-.text-purple-600 { color: rgb(147 51 234); }
-.text-indigo-600 { color: rgb(79 70 229); }
-.text-orange-600 { color: rgb(234 88 12); }
-
-.dark .dark\:text-blue-400 { color: rgb(96 165 250); }
-.dark .dark\:text-purple-400 { color: rgb(196 181 253); }
-.dark .dark\:text-indigo-400 { color: rgb(129 140 248); }
-.dark .dark\:text-orange-400 { color: rgb(251 146 60); }
+.dark .dark\:bg-primary-600 { background-color: var(--teal-600); }
+.dark .dark\:bg-primary-700 { background-color: var(--teal-700); }
+.dark .dark\:bg-primary-900 { background-color: var(--teal-900); }
 
 /* Border utilities */
 .border-l-4 { border-left-width: 4px; }
-.border-primary-500 { border-color: var(--color-primary-500); }
-.border-primary-200 { border-color: var(--color-primary-200); }
-.border-primary-700 { border-color: var(--color-primary-700); }
-.border-primary-800 { border-color: var(--color-primary-800); }
-
-/* Additional themed background utilities */
-.bg-primary-50 { background-color: var(--color-primary-50); }
-.bg-primary-900\/20 { background-color: rgb(19 78 74 / 0.2); }
-.bg-primary-900\/10 { background-color: rgba(19, 78, 74, 0.1); }
-
-/* Error and success colors */
-.text-red-300 { color: rgb(252 165 165); }
-.text-red-400 { color: rgb(248 113 113); }
-.text-red-600 { color: rgb(220 38 38); }
-.text-red-800 { color: rgb(153 27 27); }
-.border-red-300 { border-color: rgb(252 165 165); }
-.border-red-700 { border-color: rgb(185 28 28); }
 
 /* Gradient backgrounds */
 .bg-gradient-to-br {
@@ -296,15 +491,68 @@
 }
 
 .from-primary-500 {
-  --tw-gradient-from: #2ebba8;
+  --tw-gradient-from: var(--teal-500);
   --tw-gradient-to: transparent;
 }
 
 .to-primary-600 {
-  --tw-gradient-to: #26a69a;
+  --tw-gradient-to: var(--teal-600);
 }
 
-/* Enhanced shadow for step indicators */
+.from-teal-500 {
+  --tw-gradient-from: var(--teal-500);
+  --tw-gradient-to: transparent;
+}
+
+.to-teal-600 {
+  --tw-gradient-to: var(--teal-600);
+}
+
+/* Enhanced shadows */
+.shadow-teal { box-shadow: var(--shadow-teal); }
+.shadow-red { box-shadow: var(--shadow-red); }
+.shadow-blue { box-shadow: var(--shadow-blue); }
+.shadow-yellow { box-shadow: var(--shadow-yellow); }
+
 .dark .shadow-lg {
   box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.3), 0 4px 6px -2px rgba(0, 0, 0, 0.15);
-} 
+}
+
+/* ============================================
+   BRAND COLOR USAGE EXAMPLES
+   ============================================
+   
+   Teal (Primary):
+   - Use var(--teal-500) or var(--brand-teal) for primary actions
+   - Use var(--teal-600) or var(--teal-hover-light) for light mode hovers
+   - Use var(--teal-700) or var(--teal-hover-dark) for dark mode hovers
+   
+   Red (Danger):
+   - Use var(--red-500) or var(--brand-red) for destructive actions
+   - Use var(--red-600) for light mode hovers
+   - Use var(--red-700) for dark mode hovers
+   
+   Blue (Info):
+   - Use var(--blue-500) or var(--brand-blue) for informational elements
+   - Use var(--blue-600) for light mode hovers
+   - Use var(--blue-700) for dark mode hovers
+   
+   Yellow (Warning):
+   - Use var(--yellow-500) or var(--brand-yellow) for warnings
+   - Use var(--yellow-600) for light mode hovers
+   - Use var(--yellow-700) for dark mode hovers
+   
+   Gray (Neutral):
+   - Use var(--gray-50) or var(--brand-light) for light backgrounds
+   - Use var(--gray-900) or var(--brand-dark) for dark backgrounds
+   
+   Gradients:
+   - Use var(--primary-gradient) for teal gradients
+   - Use var(--primary-gradient-hover) for hover states
+   
+   Shadows:
+   - Use var(--shadow-teal) for teal-colored shadows
+   - Use var(--shadow-red) for red-colored shadows
+   - Use var(--shadow-blue) for blue-colored shadows
+   - Use var(--shadow-yellow) for yellow-colored shadows
+   ============================================ */ 

@@ -12,13 +12,13 @@
 }
 
 .theme-selector-wrapper #theme-toggle:hover {
-  color: var(--color-primary-600) !important;
+  color: var(--teal-600) !important;
   background-color: rgba(46, 187, 168, 0.08) !important;
   transform: translateY(-1px);
 }
 
 .dark .theme-selector-wrapper #theme-toggle:hover {
-  color: var(--color-primary-400) !important;
+  color: var(--teal-400) !important;
   background-color: rgba(46, 187, 168, 0.12) !important;
 }
 
@@ -45,24 +45,24 @@
 
 .theme-option:hover {
   background-color: rgba(46, 187, 168, 0.08) !important;
-  color: var(--color-primary-700) !important;
+  color: var(--teal-700) !important;
   transform: translateX(2px);
 }
 
 .dark .theme-option:hover {
   background-color: rgba(46, 187, 168, 0.12) !important;
-  color: var(--color-primary-300) !important;
+  color: var(--teal-300) !important;
 }
 
 .theme-option.active {
   background-color: rgba(46, 187, 168, 0.1) !important;
-  color: var(--color-primary-700) !important;
+  color: var(--teal-700) !important;
   position: relative;
 }
 
 .dark .theme-option.active {
   background-color: rgba(46, 187, 168, 0.15) !important;
-  color: var(--color-primary-300) !important;
+  color: var(--teal-300) !important;
 }
 
 /* Active indicator line */
@@ -74,7 +74,7 @@
   transform: translateY(-50%);
   width: 3px;
   height: 60%;
-  background: linear-gradient(135deg, var(--color-primary-500), var(--color-primary-600));
+  background: linear-gradient(135deg, var(--teal-500), var(--teal-600));
   border-radius: 0 2px 2px 0;
 }
 
@@ -124,13 +124,13 @@
 }
 
 .language-selector-wrapper #language-toggle:hover {
-  color: var(--color-primary-600) !important;
+  color: var(--teal-600) !important;
   background-color: rgba(46, 187, 168, 0.08) !important;
   transform: translateY(-1px);
 }
 
 .dark .language-selector-wrapper #language-toggle:hover {
-  color: var(--color-primary-400) !important;
+  color: var(--teal-400) !important;
   background-color: rgba(46, 187, 168, 0.12) !important;
 }
 
@@ -168,24 +168,24 @@
 
 .language-option:hover {
   background-color: rgba(46, 187, 168, 0.08) !important;
-  color: var(--color-primary-700) !important;
+  color: var(--teal-700) !important;
   transform: translateX(2px);
 }
 
 .dark .language-option:hover {
   background-color: rgba(46, 187, 168, 0.12) !important;
-  color: var(--color-primary-300) !important;
+  color: var(--teal-300) !important;
 }
 
 .language-option.active {
   background-color: rgba(46, 187, 168, 0.1) !important;
-  color: var(--color-primary-700) !important;
+  color: var(--teal-700) !important;
   position: relative;
 }
 
 .dark .language-option.active {
   background-color: rgba(46, 187, 168, 0.15) !important;
-  color: var(--color-primary-300) !important;
+  color: var(--teal-300) !important;
 }
 
 /* Active indicator line */
@@ -197,7 +197,7 @@
   transform: translateY(-50%);
   width: 3px;
   height: 60%;
-  background: linear-gradient(135deg, var(--color-primary-500), var(--color-primary-600));
+  background: linear-gradient(135deg, var(--teal-500), var(--teal-600));
   border-radius: 0 2px 2px 0;
 }
 

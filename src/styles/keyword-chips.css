@@ -21,28 +21,28 @@
 
 .keyword-chip.drag-over {
   transform: translateX(4px);
-  border-color: var(--color-primary-400) !important;
-  background-color: var(--color-primary-50) !important;
+  border-color: var(--teal-400) !important;
+  background-color: var(--teal-50) !important;
   box-shadow: 0 4px 12px -2px rgba(46, 187, 168, 0.15);
   transition: all 0.15s ease-out !important;
 }
 
 .dark .keyword-chip.drag-over {
   background-color: rgba(46, 187, 168, 0.1) !important;
-  border-color: var(--color-primary-500) !important;
+  border-color: var(--teal-500) !important;
 }
 
 /* Touch-specific feedback styles */
 .keyword-chip.touch-active {
   transform: scale(0.98);
-  background-color: var(--color-primary-100) !important;
-  border-color: var(--color-primary-300) !important;
+  background-color: var(--teal-100) !important;
+  border-color: var(--teal-300) !important;
   transition: all 0.1s ease-out;
 }
 
 .dark .keyword-chip.touch-active {
   background-color: rgba(46, 187, 168, 0.15) !important;
-  border-color: var(--color-primary-400) !important;
+  border-color: var(--teal-400) !important;
 }
 
 /* Drag placeholder */
@@ -100,7 +100,7 @@
   top: 0;
   bottom: 0;
   width: 4px;
-  background-color: var(--color-primary-500);
+  background-color: var(--teal-500);
   opacity: 0;
   transition: opacity 0.2s ease;
   border-radius: 3px;
@@ -126,11 +126,11 @@
 
 .keyword-chip:hover .drag-handle {
   opacity: 1;
-  color: var(--color-primary-500) !important;
+  color: var(--teal-500) !important;
 }
 
 .keyword-chip.dragging .drag-handle {
-  color: var(--color-primary-600) !important;
+  color: var(--teal-600) !important;
 }
 
 /* Enhanced touch improvements for mobile drag & drop */
@@ -148,14 +148,14 @@
 /* Ghost element styling */
 .drag-ghost {
   opacity: 0.4 !important;
-  background-color: var(--color-primary-100) !important;
-  border-color: var(--color-primary-300) !important;
+  background-color: var(--teal-100) !important;
+  border-color: var(--teal-300) !important;
   transform: rotate(3deg) scale(0.95);
 }
 
 .dark .drag-ghost {
   background-color: rgba(46, 187, 168, 0.1) !important;
-  border-color: var(--color-primary-600) !important;
+  border-color: var(--teal-600) !important;
 }
 
 /* Auto-scroll indicators */
@@ -164,7 +164,7 @@
   left: 0;
   right: 0;
   height: 20px;
-  background: linear-gradient(to bottom, var(--color-primary-500), transparent);
+  background: linear-gradient(to bottom, var(--teal-500), transparent);
   opacity: 0;
   transition: opacity 0.2s ease;
   pointer-events: none;
@@ -177,7 +177,7 @@
 
 .auto-scroll-indicator.bottom {
   bottom: 0;
-  background: linear-gradient(to top, var(--color-primary-500), transparent);
+  background: linear-gradient(to top, var(--teal-500), transparent);
 }
 
 .auto-scroll-indicator.active {
@@ -204,13 +204,13 @@
 .dark .dark\:text-gray-100 { color: rgb(243, 244, 246); }
 .dark .dark\:text-gray-200 { color: rgb(229, 231, 235); }
 
-.dark .dark\:hover\:text-primary-400:hover { color: var(--color-primary-400); }
-.dark .dark\:hover\:text-red-400:hover { color: rgb(248, 113, 113); }
-.dark .dark\:hover\:text-green-300:hover { color: rgb(134, 239, 172); }
+.dark .dark\:hover\:text-primary-400:hover { color: var(--teal-400); }
+.dark .dark\:hover\:text-red-400:hover { color: var(--red-400); }
+.dark .dark\:hover\:text-green-300:hover { color: var(--teal-300); }
 .dark .dark\:hover\:text-gray-200:hover { color: rgb(229, 231, 235); }
 
 /* Dark theme hover effects for add button */
-.dark .dark\:hover\:bg-primary-700:hover { background-color: var(--color-primary-700); }
+.dark .dark\:hover\:bg-primary-700:hover { background-color: var(--teal-700); }
 .dark .dark\:hover\:shadow-lg:hover { box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.2), 0 4px 6px -2px rgba(0, 0, 0, 0.1); }
 
 /* Enhanced mobile drag feedback */
@@ -338,13 +338,13 @@
   /* Improved touch feedback */
   .keyword-chip.touch-active {
     transform: scale(0.97);
-    background-color: var(--color-primary-100) !important;
-    border-color: var(--color-primary-300) !important;
+    background-color: var(--teal-100) !important;
+    border-color: var(--teal-300) !important;
     transition: all 0.1s ease-out;
   }
   
   .dark .keyword-chip.touch-active {
     background-color: rgba(46, 187, 168, 0.15) !important;
-    border-color: var(--color-primary-400) !important;
+    border-color: var(--teal-400) !important;
   }
 } 

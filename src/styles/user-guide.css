@@ -22,7 +22,7 @@
   left: 0;
   right: 0;
   height: 2px;
-  background: var(--color-primary-500);
+  background: var(--teal-500);
   transform: translateY(-50%);
   z-index: 0;
 }
