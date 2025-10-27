@@ -33,9 +33,12 @@ export class PasswordGenerator {
    * Initialize the PasswordGenerator with default configuration
    */
   constructor() {
+    // Load saved password length from localStorage or use default
+    const savedLength = this.loadPasswordLength();
+    
     this.options = {
       masterSalt: SECURITY_CONFIG.appKey,
-      length: SECURITY_CONFIG.defaultPasswordLength,
+      length: savedLength,
       includeUppercase: DEFAULT_PASSWORD_OPTIONS.includeUppercase,
       includeLowercase: DEFAULT_PASSWORD_OPTIONS.includeLowercase,
       includeNumbers: DEFAULT_PASSWORD_OPTIONS.includeNumbers,
@@ -60,6 +63,51 @@ export class PasswordGenerator {
     });
     
     this.passwordStrength = new PasswordStrength();
+  }
+
+  /**
+   * Load password length from localStorage
+   * 
+   * @returns {number} Saved password length or default value
+   */
+  loadPasswordLength() {
+    try {
+      const savedLength = localStorage.getItem('nuwault-password-length');
+      
+      if (savedLength) {
+        const length = parseInt(savedLength, 10);
+        
+        // Validate that the saved length is within allowed range
+        if (!isNaN(length) && 
+            length >= SECURITY_CONFIG.minPasswordLength && 
+            length <= SECURITY_CONFIG.maxPasswordLength) {
+          logger.info('[PasswordGenerator] Loaded saved password length:', length);
+          return length;
+        }
+      }
+    } catch (error) {
+      logger.warn('[PasswordGenerator] Failed to load password length from localStorage:', error);
+    }
+    
+    // Return default length if no valid saved value exists
+    return SECURITY_CONFIG.defaultPasswordLength;
+  }
+
+  /**
+   * Save password length to localStorage
+   * 
+   * @param {number} length - Password length to save
+   */
+  savePasswordLength(length) {
+    try {
+      if (length >= SECURITY_CONFIG.minPasswordLength && 
+          length <= SECURITY_CONFIG.maxPasswordLength) {
+        localStorage.setItem('nuwault-password-length', length.toString());
+        logger.info('[PasswordGenerator] Saved password length:', length);
+      }
+    } catch (error) {
+      logger.warn('[PasswordGenerator] Failed to save password length to localStorage:', error);
+    }
   }
 
   /**
@@ -307,6 +355,9 @@ export class PasswordGenerator {
         lengthInput.value = this.options.length;
         lastValue = currentValue;
         
+        // Save the new length value to localStorage
+        this.savePasswordLength(currentValue);
+        
         // Show visual feedback that generation is pending
         const passwordOutput = this.element.querySelector('#password-output');
         if (passwordOutput && passwordOutput.value.trim()) {
@@ -352,6 +403,9 @@ export class PasswordGenerator {
       lengthSlider.value = inputValue;
       lastValue = inputValue;
       
+      // Save the new length value to localStorage
+      this.savePasswordLength(inputValue);
+      
       // Clear any existing timeout
       if (this.lengthSliderTimeout) {
         clearTimeout(this.lengthSliderTimeout);
@@ -382,6 +436,9 @@ export class PasswordGenerator {
       this.options.length = inputValue;
       lengthSlider.value = inputValue;
       lastValue = inputValue;
+      
+      // Save the final validated length value to localStorage
+      this.savePasswordLength(inputValue);
       
       // Clear any existing timeout
       if (this.lengthSliderTimeout) {
