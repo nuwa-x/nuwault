@@ -98,7 +98,6 @@
 
 #progress-indicators .w-8:hover {
   transform: scale(1.1);
-  box-shadow: 0 4px 12px rgba(46, 187, 168, 0.3);
 }
 
 /* Mini indicators smooth transitions */
@@ -119,6 +118,5 @@
 #prev-step:hover:not(:disabled), 
 #next-step:hover:not(:disabled) {
   transform: translateY(-1px);
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
   cursor: pointer;
 } 

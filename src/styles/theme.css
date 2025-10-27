@@ -418,14 +418,12 @@
 /* Icon containers */
 .icon-container {
   background: var(--primary-gradient);
-  box-shadow: var(--shadow-teal);
   transition: all 0.3s ease;
 }
 
 .icon-container:hover {
   background: var(--primary-gradient-hover);
   transform: scale(1.1);
-  box-shadow: 0 12px 40px rgba(46, 187, 168, 0.35);
 }
 
 .icon-container svg {

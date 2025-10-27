@@ -146,7 +146,7 @@ class UserGuideController {
       const circle = document.createElement("div");
       circle.className = `w-8 h-8 rounded-full border-2 flex items-center justify-center text-xs font-medium transition-all duration-300 cursor-pointer ${
         i === this.currentStep
-          ? "bg-primary-500 border-primary-500 text-white shadow-lg scale-110"
+          ? "bg-primary-500 border-primary-500 text-white scale-110"
           : i < this.currentStep
           ? "bg-primary-100 border-primary-500 text-primary-600 dark:bg-primary-900 dark:text-primary-400"
           : "bg-gray-100 border-gray-300 text-gray-500 dark:bg-gray-700 dark:border-gray-600 dark:text-gray-400"
@@ -184,7 +184,7 @@ class UserGuideController {
         i === this.currentStep
           ? "bg-primary-500"
           : i < this.currentStep
-          ? "bg-primary-300 dark:bg-primary-600"
+          ? "bg-primary-300 dark:bg-primary-500"
           : "bg-gray-300 dark:bg-gray-600"
       }`;
 
@@ -210,7 +210,7 @@ class UserGuideController {
     container.innerHTML = `
       <div class="card-bg rounded-lg shadow-sm border border-gray-200 dark:border-gray-700 p-6">
         <div class="flex items-center mb-6">
-          <div class="flex items-center justify-center w-10 h-10 bg-primary-600 rounded-lg mr-4 shadow-sm">
+          <div class="flex items-center justify-center w-10 h-10 bg-primary-500 rounded-lg mr-4 shadow-sm">
             <span class="text-white font-bold text-sm">${
               this.currentStep + 1
             }</span>
