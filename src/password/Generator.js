@@ -122,7 +122,7 @@ export class PasswordGenerator {
                    class="input-field !w-16 text-center [appearance:textfield] [&::-webkit-outer-spin-button]:appearance-none [&::-webkit-inner-spin-button]:appearance-none">
           </div>
           <input type="range" id="length-slider" min="${SECURITY_CONFIG.minPasswordLength}" max="${SECURITY_CONFIG.maxPasswordLength}" value="${this.options.length}" 
-                 class="w-full h-2 bg-gray-200 rounded-lg appearance-none cursor-pointer dark:bg-gray-700">
+                 class="w-full h-2 rounded-lg appearance-none cursor-pointer bg-gray-200 dark:bg-gray-700">
         </div>
         <div class="space-y-2">
           <label class="text-sm font-medium text-gray-800 dark:text-gray-300">

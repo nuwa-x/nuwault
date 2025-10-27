@@ -143,6 +143,16 @@
   --input-bg: var(--gray-50);
   --input-focus: var(--teal-500);
   
+  /* Range slider */
+  --slider-track-light: var(--gray-200);
+  --slider-track-dark: var(--gray-700);
+  
+  /* Checkbox */
+  --checkbox-border-light: var(--gray-300);
+  --checkbox-border-dark: var(--gray-600);
+  --checkbox-bg-light: var(--gray-50);
+  --checkbox-bg-dark: var(--gray-800);
+  
   /* Legacy compatibility */
   --color-primary-50: var(--teal-50);
   --color-primary-100: var(--teal-100);
@@ -182,6 +192,13 @@
   /* Dark mode form elements */
   --input-border: var(--gray-600);
   --input-bg: var(--gray-800);
+  
+  /* Dark mode range slider */
+  --slider-track-dark: var(--gray-700);
+  
+  /* Dark mode checkbox */
+  --checkbox-border-dark: var(--gray-600);
+  --checkbox-bg-dark: var(--gray-800);
 }
 
 /* ============================================
