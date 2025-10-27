@@ -55,7 +55,7 @@ class HeaderController {
    */
   render() {
     this.element.innerHTML = `
-      <nav class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <nav class="max-w-7xl mx-auto">
         <div class="flex justify-between items-center h-20">
           <div class="flex items-center">
             <a href="#top" class="flex items-center logo-link">
