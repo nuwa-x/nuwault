@@ -247,7 +247,7 @@
 /* Mobile header selector adjustments */
 @media (max-width: 768px) {
   /* Compact mobile header layout */
-  .flex.md\\:hidden.items-center {
+  .flex.md\:hidden.items-center {
     gap: 0.25rem;
   }
   
