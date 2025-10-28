@@ -58,7 +58,7 @@ class HeaderController {
       <nav class="max-w-7xl mx-auto">
         <div class="flex justify-between items-center h-20">
           <div class="flex items-center">
-            <a href="#top" class="flex items-center logo-link">
+            <a href="#top" class="flex items-center logo-link pl-4 xl:pl-0">
               <img id="header-logo" 
                    src="./assets/img/logo/nuwault_logo_horizontal_dark_360px.png" 
                    alt="${t('header.logo.alt')}" 
