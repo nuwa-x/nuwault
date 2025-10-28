@@ -28,10 +28,58 @@ import { Footer } from './components/Footer.js'
 import { ScrollToTop } from './components/ScrollToTop.js'
 
 /**
+ * Check and redirect invalid URLs to canonical URL
+ * Prevents duplicate content issues for SEO
+ */
+const checkAndRedirectURL = () => {
+  const currentPath = window.location.pathname
+  const currentHash = window.location.hash
+  
+  // Get canonical URL from env or use current origin
+  const canonicalUrl = import.meta.env.VITE_APP_URL || window.location.origin
+  const canonicalOrigin = new URL(canonicalUrl).origin
+  
+  // Check if we're on the root path
+  const isRootPath = currentPath === '/' || currentPath === '/index.html'
+  
+  // If not on root path and not a special file, redirect to canonical URL
+  if (!isRootPath) {
+    // Allow robots.txt and sitemap.xml to be accessed directly
+    if (currentPath === '/robots.txt' || currentPath === '/sitemap.xml') {
+      return false
+    }
+    
+    logger.warn('[APP] Invalid URL detected, redirecting to canonical URL:', currentPath)
+    
+    // Preserve hash for anchor links
+    const redirectUrl = currentHash ? `${canonicalOrigin}${currentHash}` : canonicalOrigin
+    
+    // Use replace to avoid adding to browser history
+    window.location.replace(redirectUrl)
+    return true
+  }
+  
+  // Update canonical link in head to ensure it's always correct
+  const canonicalLink = document.querySelector('link[rel="canonical"]')
+  if (canonicalLink) {
+    canonicalLink.href = canonicalUrl
+  }
+  
+  return false
+}
+
+/**
  * Application Initialization
  * Bootstraps the entire application with proper error handling
  */
 const initApp = async () => {
+  // Check URL and redirect if necessary
+  const isRedirecting = checkAndRedirectURL()
+  if (isRedirecting) {
+    logger.log('[APP] Redirecting to canonical URL, halting initialization')
+    return
+  }
+  
   logEnvironmentInfo()
   
   // Initialize internationalization system

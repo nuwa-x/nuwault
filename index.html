@@ -26,7 +26,29 @@
     <meta property="twitter:title" content="%VITE_APP_NAME% - %VITE_APP_TITLE%" />
     <meta property="twitter:description" content="%VITE_APP_DESCRIPTION%" />
 
-    <link rel="canonical" href="%VITE_APP_URL%" />
+    <link rel="canonical" href="%VITE_APP_URL%/" />
+    
+    <!-- SEO: Prevent duplicate content by redirecting invalid URLs -->
+    <script>
+      // Early redirect before any other scripts load
+      (function() {
+        const currentPath = window.location.pathname;
+        const currentHash = window.location.hash;
+        
+        // Check if we're on an invalid path (not root and not special files)
+        if (currentPath !== '/' && currentPath !== '/index.html' && 
+            currentPath !== '/robots.txt' && currentPath !== '/sitemap.xml') {
+          
+          // Get canonical URL from meta tag
+          const canonicalLink = document.querySelector('link[rel="canonical"]');
+          const canonicalUrl = canonicalLink ? canonicalLink.href : window.location.origin;
+          
+          // Redirect to canonical URL, preserving hash if present
+          const redirectUrl = currentHash ? canonicalUrl + currentHash : canonicalUrl;
+          window.location.replace(redirectUrl);
+        }
+      })();
+    </script>
         
     <title>%VITE_APP_NAME% - %VITE_APP_TITLE%</title>
   </head>
