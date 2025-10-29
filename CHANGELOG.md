@@ -5,6 +5,53 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+
+## [1.2.0] - 2025-10-30
+
+### Added
+- Password length preference persistence using localStorage for improved user experience
+- Client-side URL validation and canonical redirect system for SEO optimization
+- Early redirect mechanism in HTML head for faster invalid URL handling
+- Environment-aware redirect logic (file://, localhost, custom domains, subdomains)
+
+### Changed
+- License updated from MIT to GNU GPLv3
+- Logo symbol redesigned with updated visual identity
+- Primary brand colors migrated to centralized CSS variable system
+- Background color palette refined for improved light/dark theme contrast
+- Service Worker cache list aligned with current logo assets
+- Redirect logic changed from whitelist to blacklist approach for better compatibility
+- Icon generation script modified for transparent backgrounds
+- Form element styling migrated to CSS variables for consistent theming
+
+### Fixed
+- SEO duplicate content issue by redirecting invalid URLs to canonical URL
+- Service Worker cache failure caused by obsolete logo file reference
+- Custom domain hosting prevented by hardcoded redirect rules
+- PWA offline functionality ensured by proper redirect handling
+- Subdomain testing blocked by overly aggressive redirect logic
+- CSS parsing issue with Tailwind class selector escape sequences
+
+### Removed
+- Hardcoded color values replaced with CSS variables
+- Box shadows from UI components for flatter design aesthetic
+
+### Style
+- Header logo padding adjusted for responsive layouts
+- Main navigation horizontal padding removed for consistent spacing
+- Slider component refactored to use theme variables
+- All brand colors migrated to teal-based palette with full scale (50-900)
+- Icon assets regenerated with transparent backgrounds
+- Favicon assets updated with redesigned symbol
+
+### Security
+- Canonical URL enforcement on production domain only
+- Privacy-first approach maintained for self-hosted deployments
+
+### Dependencies
+- Multiple dependency updates via package-lock for latest compatibility
+
+
 ## [1.1.0] - 2025-07-16
 
 ### Added
@@ -97,10 +144,6 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - PWA setup guide
 - MIT license
 
-## [Unreleased]
-
-### Changed
-- License updated from MIT to GNU GPLv3.
 
 [1.0.1]: https://github.com/nuwa-x/nuwault/releases/tag/v1.0.1
 [1.0.0]: https://github.com/nuwa-x/nuwault/releases/tag/v1.0.0 
