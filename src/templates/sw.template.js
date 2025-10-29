@@ -131,7 +131,6 @@ const STATIC_CACHE_URLS = [
   // Logo files (verified to exist)
   '/assets/img/logo/nuwault_logo_horizontal_dark_360px.png',
   '/assets/img/logo/nuwault_logo_horizontal_light_360px.png',
-  '/assets/img/logo/nuwault_logo_horizontal_white_360px.png',
   '/assets/img/logo/nuwault_logo_symbol.svg'
 ];
 
