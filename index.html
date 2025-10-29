@@ -32,6 +32,20 @@
     <script>
       // Early redirect before any other scripts load
       (function() {
+        // Skip redirect for file:// protocol (local file opening)
+        if (window.location.protocol === 'file:') {
+          return;
+        }
+        
+        // Only redirect on official production domain
+        const hostname = window.location.hostname;
+        const isLocalhost = hostname === 'localhost' || hostname === '127.0.0.1' || hostname.startsWith('192.168.');
+        const isOfficialProduction = hostname === 'nuwault.com';
+        
+        if (isLocalhost || !isOfficialProduction) {
+          return;
+        }
+        
         const currentPath = window.location.pathname;
         const currentHash = window.location.hash;
         

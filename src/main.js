@@ -32,6 +32,27 @@ import { ScrollToTop } from './components/ScrollToTop.js'
  * Prevents duplicate content issues for SEO
  */
 const checkAndRedirectURL = () => {
+  // Skip redirect for file:// protocol (local file opening)
+  if (window.location.protocol === 'file:') {
+    logger.log('[APP] Running in file:// protocol, skipping URL redirect')
+    return false
+  }
+  
+  // Only redirect on official production domain
+  const hostname = window.location.hostname
+  const isLocalhost = hostname === 'localhost' || hostname === '127.0.0.1' || hostname.startsWith('192.168.')
+  const isOfficialProduction = hostname === 'nuwault.com'
+  
+  if (isLocalhost) {
+    logger.log('[APP] Running on localhost, skipping URL redirect')
+    return false
+  }
+  
+  if (!isOfficialProduction) {
+    logger.log('[APP] Not on official production domain:', hostname, '- skipping URL redirect')
+    return false
+  }
+  
   const currentPath = window.location.pathname
   const currentHash = window.location.hash
   
