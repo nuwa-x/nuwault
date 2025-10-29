@@ -1,6 +1,6 @@
 <div align="center">
 
-![Nuwault Logo](public/assets/img/logo/nuwault_logo_horizontal_dark_360px.png)
+![Nuwault Logo](public/assets/img/logo/nuwault_logo_horizontal_teal_360px.png)
 
 **Advanced keyword-based password generator with client-side security and privacy focus**
 
