@@ -1,6 +1,6 @@
 {
-  "name": "@nuwa-x/nuwault",
-  "version": "1.0.1",
+  "name": "@nuwax-io/nuwault-web",
+  "version": "1.2.1",
   "description": "Advanced keyword-based password generator with client-side security, privacy focus and PWA support",
   "type": "module",
   "private": false,
@@ -55,10 +55,10 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/nuwa-x/nuwault.git"
+    "url": "https://github.com/nuwax-io/nuwault-web.git"
   },
   "bugs": {
-    "url": "https://github.com/nuwa-x/nuwault/issues"
+    "url": "https://github.com/nuwax-io/nuwault-web/issues"
   },
   "homepage": "https://nuwault.com",
   "devDependencies": {
@@ -69,7 +69,7 @@
     "vite-plugin-singlefile": "^2.3.0"
   },
   "dependencies": {
-    "@nuwa-x/nuwault-core": "^1.0.0",
+    "@nuwax-io/nuwault-core": "^1.0.1",
     "@tailwindcss/vite": "^4.1.11",
     "i18next": "^25.3.0",
     "tailwindcss": "^4.1.11"

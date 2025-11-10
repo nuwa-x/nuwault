@@ -6,6 +6,13 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 
+## [1.2.1] - 2025-11-11
+
+### Changed
+- Changed project name and repository URL from `@nuwa-x/nuwault` to `@nuwax-io/nuwault-web`
+- Changed core library dependency from `@nuwa-x/nuwault-core` to `@nuwax-io/nuwault-core`
+
+
 ## [1.2.0] - 2025-10-30
 
 ### Added
@@ -90,7 +97,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Added
 
 #### Core Features
-- Advanced password generation system using [@nuwa-x/nuwault-core](https://github.com/nuwa-x/nuwault-core)
+- Advanced password generation system using [@nuwax-io/nuwault-core](https://github.com/nuwax-io/nuwault-core)
 - Real-time password strength analysis with 5-level assessment
 - Keyword-based deterministic password generation
 - Customizable password options (length, character types, complexity)
@@ -145,5 +152,5 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - MIT license
 
 
-[1.0.1]: https://github.com/nuwa-x/nuwault/releases/tag/v1.0.1
-[1.0.0]: https://github.com/nuwa-x/nuwault/releases/tag/v1.0.0 
+[1.0.1]: https://github.com/nuwax-io/nuwault-web/releases/tag/v1.0.1
+[1.0.0]: https://github.com/nuwax-io/nuwault-web/releases/tag/v1.0.0 
