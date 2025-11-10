@@ -8,7 +8,7 @@
  * 
  * @author NuwaX
  */
-import { generatePassword } from '@nuwa-x/nuwault-core';
+import { generatePassword } from '@nuwax-io/nuwault-core';
 import { SECURITY_CONFIG, DEFAULT_PASSWORD_OPTIONS, CHARACTER_SETS, KEYWORD_MANAGEMENT_OPTIONS } from '../utils/config.js';
 import { toast } from '../utils/toast.js';
 import { logger } from '../utils/logger.js';

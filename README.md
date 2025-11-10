@@ -16,7 +16,7 @@
 
 ## Overview
 
-Nuwault is a secure, privacy-focused password generator that creates deterministic passwords from your keywords. All password generation happens client-side using our advanced [@nuwa-x/nuwault-core](https://github.com/nuwa-x/nuwault-core) algorithm library.
+Nuwault is a secure, privacy-focused password generator that creates deterministic passwords from your keywords. All password generation happens client-side using our advanced [@nuwax-io/nuwault-core](https://github.com/nuwax-io/nuwault-core) algorithm library.
 
 ### Why Nuwault?
 
@@ -35,7 +35,7 @@ Nuwault is a secure, privacy-focused password generator that creates determinist
 - **Multi-language Support**: Available in multiple languages
 
 ### Security Features
-- **Advanced Algorithm**: Uses [@nuwa-x/nuwault-core](https://github.com/nuwa-x/nuwault-core) for cryptographically secure generation
+- **Advanced Algorithm**: Uses [@nuwax-io/nuwault-core](https://github.com/nuwax-io/nuwault-core) for cryptographically secure generation
 - **Client-Side Only**: Your data never leaves your device
 - **Deterministic Generation**: Same inputs always produce same outputs
 - **No Network Requests**: Complete privacy protection
@@ -56,7 +56,7 @@ Nuwault is a secure, privacy-focused password generator that creates determinist
 
 ```bash
 # Clone the repository
-git clone https://github.com/nuwa-x/nuwault.git
+git clone https://github.com/nuwax-io/nuwault-web.git
 cd nuwault
 
 # Install dependencies
@@ -80,7 +80,7 @@ npm run pwa:setup        # Setup PWA features
 
 ## Password Generation Algorithm
 
-Nuwault uses the **[@nuwa-x/nuwault-core](https://github.com/nuwa-x/nuwault-core)** library for secure password generation. This advanced algorithm ensures deterministic, secure, and balanced password creation.
+Nuwault uses the **[@nuwax-io/nuwault-core](https://github.com/nuwax-io/nuwault-core)** library for secure password generation. This advanced algorithm ensures deterministic, secure, and balanced password creation.
 
 ### Algorithm Overview
 
@@ -130,7 +130,7 @@ The library includes comprehensive validation systems to ensure algorithm consis
 ## Technology Stack
 
 - **Frontend**: Vanilla JavaScript (ES6+), no frameworks
-- **Algorithm**: [@nuwa-x/nuwault-core](https://github.com/nuwa-x/nuwault-core) for secure password generation
+- **Algorithm**: [@nuwax-io/nuwault-core](https://github.com/nuwax-io/nuwault-core) for secure password generation
 - **Styling**: Tailwind CSS 4.1.11 with utility-first approach
 - **Build Tool**: Vite 7.0.0 for fast development and building
 - **PWA**: Service Worker, Web App Manifest
@@ -153,7 +153,7 @@ src/
 
 ### Password Generation Process
 1. **Input Processing**: Keywords are normalized and validated
-2. **Algorithm Execution**: [@nuwa-x/nuwault-core](https://github.com/nuwa-x/nuwault-core) handles cryptographic operations
+2. **Algorithm Execution**: [@nuwax-io/nuwault-core](https://github.com/nuwax-io/nuwault-core) handles cryptographic operations
 3. **Deterministic Output**: Same inputs always produce same results
 4. **Client-Side Only**: No network communication required
 
@@ -230,8 +230,8 @@ We welcome contributions! Please read our [Contributing Guidelines](CONTRIBUTING
 
 ## Support
 
-- **Bug Reports**: [GitHub Issues](https://github.com/nuwa-x/nuwault/issues)
-- **Feature Requests**: [GitHub Discussions](https://github.com/nuwa-x/nuwault/discussions)
+- **Bug Reports**: [GitHub Issues](https://github.com/nuwax-io/nuwault-web/issues)
+- **Feature Requests**: [GitHub Discussions](https://github.com/nuwax-io/nuwault-web/discussions)
 - **Security Issues**: [security@nuwault.com](mailto:security@nuwault.com)
 - **General Support**: [support@nuwault.com](mailto:support@nuwault.com)
 
@@ -251,6 +251,6 @@ Copyright (c) 2025 NuwaX
 
 **Built with ❤️ for password security and privacy**
 
-[⭐ Star this project](https://github.com/nuwa-x/nuwault) if you find it useful!
+[⭐ Star this project](https://github.com/nuwax-io/nuwault-web) if you find it useful!
 
 </div> 

@@ -16,7 +16,7 @@ import { initI18n } from './utils/i18n.js'
 import { setupSmoothScrollManager } from './utils/smoothScroll.js'
 
 // Core library imports
-import { analyzeCharacterDistribution } from '@nuwa-x/nuwault-core'
+import { analyzeCharacterDistribution } from '@nuwax-io/nuwault-core'
 
 // Application components
 import { Header } from './components/Header.js'

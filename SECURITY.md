@@ -90,8 +90,8 @@ We currently do not have a formal bug bounty program, but we:
 
 - **Security Issues**: security@nuwault.com
 - **General Support**: support@nuwault.com
-- **GitHub Issues**: https://github.com/nuwa-x/nuwault/issues
-- **Repository**: https://github.com/nuwa-x/nuwault
+- **GitHub Issues**: https://github.com/nuwax-io/nuwault-web/issues
+- **Repository**: https://github.com/nuwax-io/nuwault-web
 
 ## Additional Resources
 

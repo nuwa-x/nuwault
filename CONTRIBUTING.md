@@ -243,7 +243,7 @@ Test on:
 
 - **GitHub Issues**: Bug reports and feature requests
 - **Email**: support@nuwault.com for security concerns
-- **Repository**: https://github.com/nuwa-x/nuwault
+- **Repository**: https://github.com/nuwax-io/nuwault-web
 
 ### Code of Conduct
 
